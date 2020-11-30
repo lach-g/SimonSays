@@ -8,3 +8,12 @@ void print_stick_man()
         "/ \\\n");
 
 }
+
+void print_stick_man_wave()
+{
+   puts(
+        " O\n"
+        "/|/\n"
+        "/ \\\n");
+ 
+}
