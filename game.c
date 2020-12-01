@@ -4,9 +4,6 @@
 
 int main()
 {
-    //simon_dances1();
-
-    print_2_dance_phases(&simon_dances1, &simon_dances2);
-
+    print_2_dance_phases(&simon, &simon_shrug);
     return 0;
 }

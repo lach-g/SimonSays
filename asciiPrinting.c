@@ -72,6 +72,7 @@ void print_2_dance_phases(void (*phase1)(), void (*phase2)())
         (*phase2)();
         usleep(250000);
     }
+    printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
 
 void simon_touches_head()
@@ -125,6 +126,63 @@ void simon_dances2()
    "    ---|---\n"
    "   /   |      \n"
    " -    / \\     \n"
+   "     /   \\\n"
+   "    |     |\n"
+   "   -       -\n"
+    );
+}
+
+void simon_shakes_head1()
+{
+   puts(
+    
+   "     --\n"
+   "   /    \\\n"
+   "  | 0  0 |\n"
+   "  |  ^   |\n"
+   "   \\_V_/\n"
+   "       |     /\n"
+   " ------|-----\n"
+   "       |\n"
+   "      / \\\n"
+   "     /   \\\n"
+   "    |     |\n"
+   "   -       -\n"
+    ); 
+}
+
+void simon_shakes_head2()
+{
+   puts(
+    
+   "        ---\n"
+   "      /    \\\n"
+   "     | 0  0 |\n"
+   "     |   ^  |\n"
+   "       \\_V_/\n"
+   "       |     \\\n"
+   " ------|-----\n"
+   "       |\n"
+   "      / \\\n"
+   "     /   \\\n"
+   "    |     |\n"
+   "   -       -\n"
+    ); 
+}
+
+void simon_shrug()
+{
+    puts(
+    
+   "      ---\n"
+   "    /     \\\n"
+   "   | 0   0 |\n"
+   "   |   ^   |\n"
+   "  - \\__V__/ -\n"
+   "   \\   |   /\n"
+   "    ---|---\n"
+   "       |\n"
+   "      / \\\n"
    "     /   \\\n"
    "    |     |\n"
    "   -       -\n"
