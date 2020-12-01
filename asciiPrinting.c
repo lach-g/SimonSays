@@ -69,4 +69,18 @@ void print_4_dance_phases(void (*phase1)(), void (*phase2)(), void (*phase3)(), 
     }
 }
 
+void simon()
+{
+    puts(
+    
+         ----
+       /      \\
+      |        |
+      |        |
+       \\     /
+    
+    );
+
+}
+
 
