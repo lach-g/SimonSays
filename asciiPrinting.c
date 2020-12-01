@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <unistd.h>
+#define STICK_REPEAT 5
 
 void print_stick_man()
 {
@@ -59,4 +61,25 @@ void print_dancing_stickman4()
       "   `\n"
     );
 }
+
+void print_4_dance_phases(void (*phase1)(), void (*phase2)(), void (*phase3)(), void (*phase4)())
+{
+    int i;
+    for(i = 0; i < STICK_REPEAT; i++)
+    {
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        (*phase1)();
+        usleep(250000);
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        (*phase2)();
+        usleep(250000);
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        (*phase3)();
+        usleep(250000);
+        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        (*phase4)();
+        usleep(250000);
+    }
+}
+
 
