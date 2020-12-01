@@ -1,7 +1,7 @@
 #ifndef HEADER_GUARD
 #define HEADER_GUARD
 
-#define STRING_LEN 128
+#define STRING_LEN 250
 
 /* Pointer to printer function that takes in two function pointer that print a phase of simon */
 typedef void (*Action_ptr)(void (*phase1)(), void (*phase2)());

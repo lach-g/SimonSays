@@ -7,12 +7,17 @@
 
 int main()
 {
+    right_wave();
+    
+
+
+    /*
     command_t commands[3];
 
     commands[0].description = "Dance"
     commands[0].print_action = &print_2_dance_phases;
 
-    /* 
+    
     strcpy(cmd1.description, "Dancing\n");
     cmd1.print_action = &print_2_dance_phases;
 
