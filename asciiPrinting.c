@@ -2,26 +2,9 @@
 #include <unistd.h>
 #define STICK_REPEAT 5
 
-void print_stick_man()
+void dancing_stickman1()
 {
-    puts(
-        " O\n"
-        "/|\\\n"
-        "/ \\\n");
-
-}
-
-void print_stick_man_wave()
-{
-   puts(
-        " O\n"
-        "/|/\n"
-        "/ \\\n");
- 
-}
-
-void print_dancing_stickman1()
-{
+    /*
     puts(
         " _O/\n"
         "   \\\n" 
@@ -29,9 +12,13 @@ void print_dancing_stickman1()
         "   \\  `\n"
         "   `\n"
     );
+    */
+    char* figure1 = "\n _O/\n   \\\n   /\\_\n   \\  `\n   `\n";
+    printf("%s", figure1);
+
 }
 
-void print_dancing_stickman2()
+void dancing_stickman2()
 {
     puts(
             "    ,\n"
@@ -40,7 +27,7 @@ void print_dancing_stickman2()
     );
 }
 
-void print_dancing_stickman3()
+void dancing_stickman3()
 {
     puts(
     "     ,\n"
@@ -51,7 +38,7 @@ void print_dancing_stickman3()
     );
 }
 
-void print_dancing_stickman4()
+void dancing_stickman4()
 {
     puts(
       "    \\O_\n"

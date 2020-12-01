@@ -4,14 +4,9 @@
 
 int main()
 {
-    /*
-    void (*phase1)() = &print_dancing_stickman1;
-    void (*phase2)() = &print_dancing_stickman2;
-    void (*phase3)() = &print_dancing_stickman3;
-    void (*phase4)() = &print_dancing_stickman4;
-    */
 
-    print_4_dance_phases(&print_dancing_stickman1, &print_dancing_stickman2, &print_dancing_stickman3, &print_dancing_stickman4);
+    print_4_dance_phases(&dancing_stickman1, &dancing_stickman2, &dancing_stickman3, &dancing_stickman4);
+
 
     return 0;
 }
