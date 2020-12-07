@@ -6,45 +6,59 @@
 #include "asciiPrinting.h"
 #define STICK_REPEAT 5
 
-/*
-void animation(char* frame1, char* frame2)
+
+void animation(char* display_frame1, char* display_frame2)
 {
-    
-}
-*/
-
-
-
-
-
-
-/* Simon dancing function */
-void dance()
-{
-    char* phase1 = malloc(STRING_LEN * sizeof(char));
-    char* phase2 = malloc(STRING_LEN * sizeof(char));
+    char* frame1 = malloc(STRING_LEN * sizeof(char));
+    char* frame2 = malloc(STRING_LEN * sizeof(char));
     char* refresh = malloc(STRING_LEN * sizeof(char));
 
-    strcpy(phase1, DANCE1);
-    strcpy(phase2, DANCE2);
+    strcpy(frame1, display_frame1);
+    strcpy(frame2, display_frame2);
     strcpy(refresh, REFRESH);
 
     int i;
     for(i = 0; i < STICK_REPEAT; i++)
     {
         printf("%s", refresh);
-        printf("%s", phase1);
+        printf("%s", frame1);
         usleep(250000);
         printf("%s", refresh);
-        printf("%s", phase2);
+        printf("%s", frame2);
         usleep(250000);
     }
 
-    free(phase1);
-    free(phase2);
-    
+    free(frame1);
+    free(frame2);
+ 
     free(refresh);
 }
+
+
+
+/* Simon dancing function */
+void dance()
+{
+    animation(DANCE1, DANCE2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void right_wave()
 {
