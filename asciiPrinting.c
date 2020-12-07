@@ -84,9 +84,10 @@ void right_wave()
 void simon()
 {
     puts(
-    
-   "      ---\n"
-   "    /     \\\n"
+   "              ----------------------------\n" 
+   "             | Simon said left hand wave! |\n" 
+   "      ---    |      So I will WAVE        |\n"
+   "    /     \\ / ----------------------------\n"
    "   | 0   0 |\n"
    "   |   ^   |\n"
    "    \\__V__/\n"
@@ -105,8 +106,12 @@ void simon_left_hand()
 {
     puts(
     
-   "      ---\n"
-   "    /     \\\n"
+
+
+   "              ----------------------------\n" 
+   "             | Simon said left hand wave! |\n" 
+   "      ---    |      So I will WAVE        |\n"
+   "    /     \\ / ----------------------------\n"
    "   | 0   0 |\n"
    "   |   ^   |\n"
    "    \\__V__/  /\n"
@@ -124,8 +129,13 @@ void simon_right_hand()
 {
     puts(
     
-   "      ---\n"
-   "    /     \\\n"
+
+
+
+   "              -----------------------------\n" 
+   "             | Simon said right hand wave! |\n" 
+   "      ---    |        So I will WAVE       |\n"
+   "    /     \\ / ----------------------------\n"
    "   | 0   0 |\n"
    "   |   ^   |\n"
    "\\   \\__V__/\n"
@@ -142,9 +152,14 @@ void simon_right_hand()
 void simon_touches_head()
 {
    puts(
+
+
+
     
-   "      ---\n"
-   "    /     \\\n"
+   "              ----------------------------\n" 
+   "             |  Simon said touch my head  |\n" 
+   "      ---    |     So I will touch it     |\n"
+   "    /     \\ / ---------------------------\n"
    "  ,| 0   0 |,\n"
    " / |   ^   | \\\n"
    " \\  \\__V__/  /\n"
@@ -163,9 +178,13 @@ void simon_touches_head()
 void simon_shakes_head1()
 {
    puts(
+
+
     
-   "     --\n"
-   "   /    \\\n"
+   "               ----------------------------\n" 
+   "              |  Not a Simon Says command! |\n" 
+   "     ---    /  ----------------------------\n"
+   "   /     \\/\n"
    "  | 0  0 |\n"
    "  |  ^   |\n"
    "   \\_V_/\n"
@@ -182,9 +201,10 @@ void simon_shakes_head1()
 void simon_shakes_head2()
 {
    puts(
-    
-   "        ---\n"
-   "      /    \\\n"
+   "               ----------------------------\n" 
+   "              |  Not a Simon Says command! |\n" 
+   "        --- /  ----------------------------\n"
+   "      /     \\\n"
    "     | 0  0 |\n"
    "     |   ^  |\n"
    "       \\_V_/\n"
@@ -198,11 +218,13 @@ void simon_shakes_head2()
     ); 
 }
 
-void simon_shrug()
+void simon_shrug1()
 {
     puts(
     
-   "      ---\n"
+   "             ------------------------------------\n" 
+   "            |  Simon doesn't know how to do that |\n" 
+   "      ---  / ------------------------------------\n"
    "    /     \\\n"
    "   | 0   0 |\n"
    "   |   ^   |\n"
@@ -215,6 +237,27 @@ void simon_shrug()
    "    |     |\n"
    "   -       -\n"
     );
+}
+
+void simon_shrug2()
+{
+    puts(
+   "             ------------------------------------\n" 
+   "            |  Simon doesn't know how to do that |\n" 
+   "      ---  / ------------------------------------\n"
+   "    /     \\\n"
+   "   | 0   0 |\n"
+   "   |   ^   |\n"
+   "    \\__V__/\n"
+   "       |\n"
+   " ------|------\n"
+   "       |\n"
+   "      / \\\n"
+   "     /   \\\n"
+   "    |     |\n"
+   "   -       -\n"
+    );
+
 }
 
 

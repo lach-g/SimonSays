@@ -7,7 +7,6 @@
 
 int main()
 {
-    dance();
 
 
 
@@ -15,19 +14,19 @@ int main()
 
     
     
-    /*
-    For testing out the new text and moves
+    
+    //For testing out the new text and moves
     int i;
     for(i = 0; i < 5; i++) 
     {
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        simon_dances1();
+        simon_shrug1();
         usleep(250000);
         printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        simon_dances2();
+        simon_shrug2();
         usleep(250000);
     }
-    */
+    
 
     /*
     command_t commands[3];
