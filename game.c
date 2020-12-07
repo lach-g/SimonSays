@@ -7,7 +7,7 @@
 
 int main()
 {
-    right_wave();
+    dance();
     
 
 

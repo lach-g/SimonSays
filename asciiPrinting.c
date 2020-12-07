@@ -5,16 +5,16 @@
 #include "list.h"
 #define STICK_REPEAT 5
 
-
+/* Simon dancing function */
 void dance()
 {
     char* phase1 = malloc(STRING_LEN * sizeof(char));
     char* phase2 = malloc(STRING_LEN * sizeof(char));
     char* refresh = malloc(STRING_LEN * sizeof(char));
 
-    strcpy(phase1, "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n _  \\__V__/\n  \\    |\n    ---|---\n       |    \\\n      / \\    -\n      \\ /\n      / \\\n     -   -\n");
-    strcpy(phase1, "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n    \\__V__/  _\n       |    /\n    ---|---\n   /   |      \n -    / \\     \n     /   \\\n    |     |\n   -       -\n");
-    strcpy(phase1, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    strcpy(phase1, "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n _  \\__V__/\n  \\    |\n    ---|---\n       |    \\\n      / \\    -\n      \\ /\n      / \\\n     -   -\n\0");
+    strcpy(phase2, "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n    \\__V__/  _\n       |    /\n    ---|---\n   /   |      \n -    / \\     \n     /   \\\n    |     |\n   -       -\n\0");
+    strcpy(refresh, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
     int i;
     for(i = 0; i < STICK_REPEAT; i++)
@@ -26,10 +26,10 @@ void dance()
         printf("%s", phase2);
         usleep(250000);
     }
+
     free(phase1);
     free(phase2);
     
-    printf("%s", refresh);
     free(refresh);
 }
 
