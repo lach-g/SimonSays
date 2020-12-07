@@ -3,7 +3,20 @@
 #include <unistd.h>
 #include <string.h>
 #include "list.h"
+#include "asciiPrinting.h"
 #define STICK_REPEAT 5
+
+/*
+void animation(char* frame1, char* frame2)
+{
+    
+}
+*/
+
+
+
+
+
 
 /* Simon dancing function */
 void dance()
@@ -12,9 +25,9 @@ void dance()
     char* phase2 = malloc(STRING_LEN * sizeof(char));
     char* refresh = malloc(STRING_LEN * sizeof(char));
 
-    strcpy(phase1, "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n _  \\__V__/\n  \\    |\n    ---|---\n       |    \\\n      / \\    -\n      \\ /\n      / \\\n     -   -\n\0");
-    strcpy(phase2, "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n    \\__V__/  _\n       |    /\n    ---|---\n   /   |      \n -    / \\     \n     /   \\\n    |     |\n   -       -\n\0");
-    strcpy(refresh, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    strcpy(phase1, DANCE1);
+    strcpy(phase2, DANCE2);
+    strcpy(refresh, REFRESH);
 
     int i;
     for(i = 0; i < STICK_REPEAT; i++)

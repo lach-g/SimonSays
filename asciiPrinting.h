@@ -1,3 +1,7 @@
+#define DANCE1 "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n _  \\__V__/\n  \\    |\n    ---|---\n       |    \\\n      / \\    -\n      \\ /\n      / \\\n     -   -\n\0"
+#define DANCE2 "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n    \\__V__/  _\n       |    /\n    ---|---\n   /   |      \n -    / \\     \n     /   \\\n    |     |\n   -       -\n\0"
+#define REFRESH "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+
 void dance();
 void right_wave();
 void simon();

@@ -10,7 +10,7 @@ $(EXEC) : $(OBJ)
 game.o : game.c asciiPrinting.h list.h
 	$(CC) -c game.c $(CFLAGS)
 
-asciiPrinting.o : asciiPrinting.c asciiPrinting.h
+asciiPrinting.o : asciiPrinting.c asciiPrinting.h list.h
 	$(CC) -c asciiPrinting.c $(CFLAGS)
 
 list.o : list.c list.h
