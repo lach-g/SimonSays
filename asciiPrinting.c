@@ -12,8 +12,8 @@ void dance()
     char* phase2 = malloc(STRING_LEN * sizeof(char));
     char* refresh = malloc(STRING_LEN * sizeof(char));
 
-    strcpy(phase1, "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n _  \\__V__/\n  \\    |\n    ---|---\n       |    \\\n      / \\    -\n      \\ /\n      / \\\n     -   -\n\0");
-    strcpy(phase2, "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n    \\__V__/  _\n       |    /\n    ---|---\n   /   |      \n -    / \\     \n     /   \\\n    |     |\n   -       -\n\0");
+    strcpy(phase1, "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n _  \\__V__/\n  \\    |\n    ---|---\n       |    \\\n      / \\    -\n      \\ /\n      / \\\n     -   -\n\0");
+    strcpy(phase2, "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n    \\__V__/  _\n       |    /\n    ---|---\n   /   |      \n -    / \\     \n     /   \\\n    |     |\n   -       -\n\0");
     strcpy(refresh, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
     int i;
@@ -211,9 +211,10 @@ void simon_shrug()
 void simon_dances1()
 {
     puts(
-    
-   "      ---\n"
-   "    /     \\\n"
+   "              -------------------\n"     
+   "             | Simon says dance! |\n"     
+   "      ---    | So I will DANCE   |\n"
+   "    /     \\ / -------------------\n"
    "   | 0   0 |\n"
    "   |   ^   |\n"
    " _  \\__V__/\n"
@@ -231,8 +232,10 @@ void simon_dances2()
 {
     puts(
     
-   "      ---\n"
-   "    /     \\\n"
+   "              -------------------\n"     
+   "             | Simon says dance! |\n"     
+   "      ---    | So I will DANCE   |\n"
+   "    /     \\ / -------------------\n"
    "   | 0   0 |\n"
    "   |   ^   |\n"
    "    \\__V__/  _\n"
