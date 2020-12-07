@@ -8,25 +8,13 @@
 int main()
 {
 
+    dance();
+    left_wave();
+    right_wave();
+    touch_head();
+    shake_head();
+    shrug();
 
-
-
-
-    
-    
-    
-    //For testing out the new text and moves
-    int i;
-    for(i = 0; i < 5; i++) 
-    {
-        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        simon_shrug1();
-        usleep(250000);
-        printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        simon_shrug2();
-        usleep(250000);
-    }
-    
 
     /*
     command_t commands[3];

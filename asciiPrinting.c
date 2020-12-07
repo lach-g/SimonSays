@@ -7,6 +7,7 @@
 #define STICK_REPEAT 5
 
 
+/* Prints to terminal the 2 given frames manipulated to appear as moving images */
 void animation(char* display_frame1, char* display_frame2)
 {
     char* frame1 = malloc(STRING_LEN * sizeof(char));
@@ -36,58 +37,57 @@ void animation(char* display_frame1, char* display_frame2)
 
 
 
-/* Simon dancing function */
+/* Dancing frames to the animation function */
 void dance()
 {
     animation(DANCE1, DANCE2);
 }
 
+/* Left wave frames to the animation function */
+void left_wave()
+{
+    animation(LEFT_WAVE1, LEFT_WAVE2);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Right wave frames to the animation function */
 void right_wave()
 {
-    char phase1[STRING_LEN] = "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n    \\__V__/\n       |\n ------|------\n       |\n      / \\\n     /   \\\n    |     |\n   -       -\n";
-    char phase2[STRING_LEN] = "      ---\n    /     \\\n   | 0   0 |\n   |   ^   |\n\\   \\__V__/\n \\     |   \n   ----|------\n       |\n      / \\\n     /   \\\n    |     |\n   -       -\n";
-    char refresh[STRING_LEN] = "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+    animation(RIGHT_WAVE1, RIGHT_WAVE2);
+}
 
-    int i;
-    for(i = 0; i < STICK_REPEAT; i++)
-    {
-        printf("%s", refresh);
-        printf("%s", phase1);
-        usleep(250000);
-        printf("%s", refresh);
-        printf("%s", phase2);
-        usleep(250000);
-    }
-    printf("%s", refresh);
+/* Touch head frames to the animation function */
+void touch_head()
+{
+    animation(TOUCH_HEAD1, TOUCH_HEAD2);
+}
+
+/* Shake head frames to the animation function */
+void shake_head()
+{
+    animation(SHAKE_HEAD1, SHAKE_HEAD2);
+}
+
+/* frames to the animation function */
+void shrug()
+{
+    animation(SHRUG1, SHRUG2);
 }
 
 
 
+
+
+
+
+
+/* Left over Simon print statements for reference */
 void simon()
 {
     puts(
    "              ----------------------------\n" 
-   "             | Simon said left hand wave! |\n" 
-   "      ---    |      So I will WAVE        |\n"
-   "    /     \\ / ----------------------------\n"
+   "             |  Simon said touch my head  |\n" 
+   "      ---    |     So I will touch it     |\n"
+   "    /     \\ / ---------------------------\n"
    "   | 0   0 |\n"
    "   |   ^   |\n"
    "    \\__V__/\n"
@@ -105,9 +105,6 @@ void simon()
 void simon_left_hand()
 {
     puts(
-    
-
-
    "              ----------------------------\n" 
    "             | Simon said left hand wave! |\n" 
    "      ---    |      So I will WAVE        |\n"
@@ -128,10 +125,6 @@ void simon_left_hand()
 void simon_right_hand()
 {
     puts(
-    
-
-
-
    "              -----------------------------\n" 
    "             | Simon said right hand wave! |\n" 
    "      ---    |        So I will WAVE       |\n"
@@ -152,10 +145,6 @@ void simon_right_hand()
 void simon_touches_head()
 {
    puts(
-
-
-
-    
    "              ----------------------------\n" 
    "             |  Simon said touch my head  |\n" 
    "      ---    |     So I will touch it     |\n"
@@ -173,14 +162,9 @@ void simon_touches_head()
     ); 
 }
 
-
-
 void simon_shakes_head1()
 {
    puts(
-
-
-    
    "               ----------------------------\n" 
    "              |  Not a Simon Says command! |\n" 
    "     ---    /  ----------------------------\n"
@@ -221,7 +205,6 @@ void simon_shakes_head2()
 void simon_shrug1()
 {
     puts(
-    
    "             ------------------------------------\n" 
    "            |  Simon doesn't know how to do that |\n" 
    "      ---  / ------------------------------------\n"
@@ -260,24 +243,6 @@ void simon_shrug2()
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Old Simon functions for viewing reference */
 void simon_dances1()
 {
     puts(
@@ -301,7 +266,6 @@ void simon_dances1()
 void simon_dances2()
 {
     puts(
-    
    "              -------------------\n"     
    "             | Simon says dance! |\n"     
    "      ---    | So I will DANCE   |\n"
