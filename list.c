@@ -1,56 +1,71 @@
-#include <stdio.h>
-#include <string.h>
 #include "list.h"
-#include "asciiPrinting.h"
-#define NUM_MOVES 6
 
-
-/* for the struct functions */
-command_t* createCommand()
+list_t* create_list()
 {
-
-    command_t* command = malloc(1*sizeof(command_t));
-    char trick_command[COM_STRING_LEN];
-
-    printf("Enter command:\n");
-    //scanf(" %[^\n]", command.description);
-    fgets(command->description, COM_STRING_LEN, stdin);
-    command->description[strlen(command->description) - 1] = '\0';
-
-    strcpy(trick_command, command->description);
-    trick_command[17] = '\0';
-
-    if(strcmp(command->description, "Simon says dance") == 0)
-    {
-        command->action = &dance;
-    }
-    else if(strcmp(command->description, "Simon says left wave") == 0)
-    {
-        command->action = &left_wave;
-    }
-    else if(strcmp(command->description, "Simon says right wave") == 0)
-    {
-        command->action = &right_wave;
-    }
-    else if(strcmp(command->description, "Simon says touch head") == 0)
-    {
-        command->action = &touch_head;
-    }
-    else if(strcmp(trick_command, "Simon doesn't say") == 0)
-    {
-        command->action = &shake_head;
-    }
-    else
-    {
-        command->action = &shrug;
-    }
-
-    return command;
+    return calloc(1, sizeof(list_t));
 }
 
 
-void printCommand(command_t* node)
+void add_to_start_list(list_t* list, command_t* item_adding)
+{    
+    list_node_t* new_node = calloc(1, sizeof(list_node_t));
+    new_node->data = item_adding;
+
+    if(list->count == 0)
+    {
+        list->head = new_node;
+        list->tail = new_node;
+        list->count++; 
+    }
+    else
+    {
+        new_node->next = list->head;
+        list->head = new_node;
+        list->count++;
+    }
+    
+    
+}
+
+void print_list(list_t* list)
 {
-    node->action();
-    printf("Command is: %s\n", node->description);
+    list_node_t* i;
+    for(i = list->head; i != NULL; i = i->next)
+    {
+        printCommand(i->data);
+    }
+}
+
+void free_list(list_t* list)
+{
+    list_node_t* current;
+    current = list->head;
+    while(current != NULL)
+    {
+        list_node_t* next = current->next;
+        free(current->data);
+        free(current);
+        current = next;
+    }
+
+    free(list);
+}
+
+command_t* dequeue(list_t* list)
+{
+    command_t* first = list->tail->data;
+
+    list_node_t* new_first;
+    list_node_t* current;
+    current = list->head;
+    while(current != NULL)
+    {
+        new_first = current;
+        current = current->next;
+    }
+
+    list->tail = new_first;
+    new_first->next = NULL;
+    
+    return first;
 }

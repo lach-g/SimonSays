@@ -1,28 +1,23 @@
-#ifndef HEADER_GUARD
-#define HEADER_GUARD
+#include "command.h"
 
-#include <stdlib.h>
-#define FR_STRING_LEN 300
-#define COM_STRING_LEN 128
-
-/* Pointer to animation functions */
-typedef void (*Action_ptr)();
-
-
-/* Command node structure */
-typedef struct Command
+typedef struct ListNode
 {
-    char description[COM_STRING_LEN];
-    Action_ptr action;
+    command_t* data;
+    struct ListNode* next;
+} list_node_t;
 
-} command_t;
+typedef struct LinkedList
+{
+    list_node_t* head;
+    list_node_t* tail;
+    int count;
+} list_t;
 
+list_t* create_list();
+void add_to_start_list(list_t* list, command_t* item_adding);
+void print_list(list_t* list);
+void free_list(list_t* list);
+command_t* dequeue(list_t* list);
 
-/* Function declarators */
-void printCommand(command_t* node);
-command_t* createCommand();
-
-
-#endif
 
 

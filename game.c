@@ -1,25 +1,30 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-
 #include "asciiPrinting.h"
+#include "command.h"
 #include "list.h"
-#define COMMAND_LEN 1
+#define COMMAND_LEN 2
 
 int main()
 {
-    command_t* commands[COMMAND_LEN];
+    // Create the list
+    list_t* commands = create_list();
 
-    int i;
-    for(i = 0; i < COMMAND_LEN; i++)
+    //Fill list
+    for(int i = 0; i < COMMAND_LEN; i++)
     {
-        commands[i] = createCommand();
+        add_to_start_list(commands, create_command());
+
     }
 
-    for(i = 0; i < COMMAND_LEN; i++)
+    for(int i = 0; i < COMMAND_LEN; i++)
     {
-        printCommand(commands[i]);
+        command_t* command = dequeue(commands);
+        command->action();
     }
+    free_list(commands);
+
 
     return 0;
 }
