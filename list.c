@@ -53,19 +53,34 @@ void free_list(list_t* list)
 
 command_t* dequeue(list_t* list)
 {
-    command_t* first = list->tail->data;
+    list_node_t* temp = list->head;
+    list->head = list->head->next;
 
-    list_node_t* new_first;
-    list_node_t* current;
-    current = list->head;
-    while(current != NULL)
+    if(list->head == NULL)
     {
-        new_first = current;
-        current = current->next;
+        list->tail = NULL;
     }
 
-    list->tail = new_first;
-    new_first->next = NULL;
+    command_t* command = temp->data;
+    free(temp);
+    return command;
     
-    return first;
+}
+
+void enqueue(list_t* list, command_t* item_adding)
+{
+    list_node_t* new_node = calloc(1, sizeof(list_node_t));
+    new_node->data = item_adding;
+
+    if(list->head == NULL)
+    {
+        list->head = new_node;
+        list->tail = new_node;
+    }
+    else
+    {
+        list->tail->next = new_node;
+        list->tail = new_node;
+    }
+    
 }

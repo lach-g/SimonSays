@@ -14,7 +14,7 @@ int main()
     //Fill list
     for(int i = 0; i < COMMAND_LEN; i++)
     {
-        add_to_start_list(commands, create_command());
+        enqueue(commands, create_command());
 
     }
 
@@ -23,6 +23,8 @@ int main()
         command_t* command = dequeue(commands);
         command->action();
     }
+
+
     free_list(commands);
 
 
