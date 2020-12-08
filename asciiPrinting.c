@@ -10,9 +10,9 @@
 /* Prints to terminal the 2 given frames manipulated to appear as moving images */
 void animation(char* display_frame1, char* display_frame2)
 {
-    char* frame1 = malloc(STRING_LEN * sizeof(char));
-    char* frame2 = malloc(STRING_LEN * sizeof(char));
-    char* refresh = malloc(STRING_LEN * sizeof(char));
+    char* frame1 = malloc(FR_STRING_LEN * sizeof(char));
+    char* frame2 = malloc(FR_STRING_LEN * sizeof(char));
+    char* refresh = malloc(FR_STRING_LEN * sizeof(char));
 
     strcpy(frame1, display_frame1);
     strcpy(frame2, display_frame2);
@@ -28,6 +28,7 @@ void animation(char* display_frame1, char* display_frame2)
         printf("%s", frame2);
         usleep(250000);
     }
+    printf("%s", refresh);
 
     free(frame1);
     free(frame2);

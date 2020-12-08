@@ -13,7 +13,7 @@ game.o : game.c asciiPrinting.h list.h
 asciiPrinting.o : asciiPrinting.c asciiPrinting.h list.h
 	$(CC) -c asciiPrinting.c $(CFLAGS)
 
-list.o : list.c list.h
+list.o : list.c list.h asciiPrinting.h
 	$(CC) -c list.c $(CFLAGS)
 
 # Cleaning directory

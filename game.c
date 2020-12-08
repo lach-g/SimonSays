@@ -4,31 +4,22 @@
 
 #include "asciiPrinting.h"
 #include "list.h"
+#define COMMAND_LEN 1
 
 int main()
 {
+    command_t* commands[COMMAND_LEN];
 
-    dance();
-    left_wave();
-    right_wave();
-    touch_head();
-    shake_head();
-    shrug();
+    int i;
+    for(i = 0; i < COMMAND_LEN; i++)
+    {
+        commands[i] = createCommand();
+    }
 
-
-    /*
-    command_t commands[3];
-
-    commands[0].description = "Dance"
-    commands[0].print_action = &print_2_dance_phases;
-
-    
-    strcpy(cmd1.description, "Dancing\n");
-    cmd1.print_action = &print_2_dance_phases;
-
-    (*cmd1.print_action)(&simon_dances1, &simon_dances2);
-    printf("That was: %s", cmd1.description);
-    */
+    for(i = 0; i < COMMAND_LEN; i++)
+    {
+        printCommand(commands[i]);
+    }
 
     return 0;
 }

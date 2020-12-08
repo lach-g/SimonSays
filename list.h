@@ -1,17 +1,27 @@
 #ifndef HEADER_GUARD
 #define HEADER_GUARD
 
-#define STRING_LEN 300 
+#include <stdlib.h>
+#define FR_STRING_LEN 300
+#define COM_STRING_LEN 128
 
-/* Pointer to printer function that takes in two function pointer that print a phase of simon */
-typedef void (*Action_ptr)(void (*phase1)(), void (*phase2)());
+/* Pointer to animation functions */
+typedef void (*Action_ptr)();
 
+
+/* Command node structure */
 typedef struct Command
 {
-    char description[STRING_LEN];
-    Action_ptr print_action;
+    char description[COM_STRING_LEN];
+    Action_ptr action;
 
 } command_t;
+
+
+/* Function declarators */
+void printCommand(command_t* node);
+command_t* createCommand();
+
 
 #endif
 
