@@ -38,7 +38,7 @@ int main(int argc, char* argv[])
 
         
         // Adds a command from the terminal to the queue
-        enqueue(commands, create_command());
+        enqueue(commands, create_command_descript());
         command_count++;
 
         cancel_choice(&continuing);

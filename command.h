@@ -21,7 +21,8 @@ typedef struct Command
 /* Function declarators */
 void scan_input(int* arg_count, char* argv[], char* filename, int* input);
 void printCommand(command_t* node);
-command_t* create_command();
+command_t* create_command_descript();
+command_t* create_command_action(command_t* to_complete);
 
 
 #endif

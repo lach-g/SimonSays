@@ -15,46 +15,60 @@ void scan_input(int* arg_count, char* argv[], char* filename, int* input)
 }
 
 /* for the struct functions */
-command_t* create_command()
+command_t* create_command_descript()
 {
 
     command_t* command = malloc(1*sizeof(command_t));
-    char trick_command[COM_STRING_LEN];
 
     printf("Enter command:\n");
     //scanf(" %[^\n]", command.description);
     fgets(command->description, COM_STRING_LEN, stdin);
     command->description[strlen(command->description) - 1] = '\0';
 
-    strcpy(trick_command, command->description);
+    create_command_action(command);
+
+    return command;
+    
+}
+
+command_t* create_file_command(char* line)
+{
+    
+}
+
+
+command_t* create_command_action(command_t* to_complete)
+{
+    char trick_command[COM_STRING_LEN];
+    strcpy(trick_command, to_complete->description);
     trick_command[16] = '\0';
 
-    if(strcmp(command->description, "Simon says dance") == 0)
+    if(strcmp(to_complete->description, "Simon says dance") == 0)
     {
-        command->action = &dance;
+        to_complete->action = &dance;
     }
-    else if(strcmp(command->description, "Simon says left wave") == 0)
+    else if(strcmp(to_complete->description, "Simon says left wave") == 0)
     {
-        command->action = &left_wave;
+        to_complete->action = &left_wave;
     }
-    else if(strcmp(command->description, "Simon says right wave") == 0)
+    else if(strcmp(to_complete->description, "Simon says right wave") == 0)
     {
-        command->action = &right_wave;
+        to_complete->action = &right_wave;
     }
-    else if(strcmp(command->description, "Simon says touch head") == 0)
+    else if(strcmp(to_complete->description, "Simon says touch head") == 0)
     {
-        command->action = &touch_head;
+        to_complete->action = &touch_head;
     }
     else if(strcmp(trick_command, "Simon didn't say") == 0)
     {
-        command->action = &shake_head;
+        to_complete->action = &shake_head;
     }
     else
     {
-        command->action = &shrug;
+        to_complete->action = &shrug;
     }
 
-    return command;
+    return to_complete;
 }
 
 
