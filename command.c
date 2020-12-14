@@ -18,7 +18,7 @@ command_t* create_command()
     command->description[strlen(command->description) - 1] = '\0';
 
     strcpy(trick_command, command->description);
-    trick_command[17] = '\0';
+    trick_command[16] = '\0';
 
     if(strcmp(command->description, "Simon says dance") == 0)
     {
@@ -36,7 +36,7 @@ command_t* create_command()
     {
         command->action = &touch_head;
     }
-    else if(strcmp(trick_command, "Simon doesn't say") == 0)
+    else if(strcmp(trick_command, "Simon didn't say") == 0)
     {
         command->action = &shake_head;
     }

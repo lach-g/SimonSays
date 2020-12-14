@@ -9,22 +9,24 @@
 
 int main()
 {
+    list_t* commands = create_list();
     int choice = 1;
+    int command_count = 0;
 
     while(choice)
     {
-        cancel_choice(&choice);
         
-        // Create the list
-        list_t* commands = create_list();
-
+        // Adds a command from the terminal to the queue
         enqueue(commands, create_command());
+        command_count++;
+        
+        cancel_choice(&choice);
+    }
 
-        for(int i = 0; i < COMMAND_LEN; i++)
-        {
-            command_t* command = dequeue(commands);
-            command->action();
-        }
+    for(int i = 0; i < command_count; i++)
+    {
+        command_t* command = dequeue(commands);
+        command->action();
     }
 
     //free_list(commands);

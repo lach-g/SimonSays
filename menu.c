@@ -4,5 +4,7 @@
 
 void cancel_choice(int* choice)
 {
-    printf("(0) Exit (1) Continue\n");
+    printf("(0) See Simon (1) Continue inputting\n");
+    scanf("%d", choice);
+    getchar();
 }

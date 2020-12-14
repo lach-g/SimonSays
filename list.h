@@ -2,7 +2,7 @@
 
 typedef struct ListNode
 {
-    command_t* data;
+    void* data;
     struct ListNode* next;
 } list_node_t;
 
