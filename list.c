@@ -5,28 +5,6 @@ list_t* create_list()
     return calloc(1, sizeof(list_t));
 }
 
-
-void add_to_start_list(list_t* list, command_t* item_adding)
-{    
-    list_node_t* new_node = calloc(1, sizeof(list_node_t));
-    new_node->data = item_adding;
-
-    if(list->count == 0)
-    {
-        list->head = new_node;
-        list->tail = new_node;
-        list->count++; 
-    }
-    else
-    {
-        new_node->next = list->head;
-        list->head = new_node;
-        list->count++;
-    }
-    
-    
-}
-
 void print_list(list_t* list)
 {
     list_node_t* i;
@@ -84,3 +62,23 @@ void enqueue(list_t* list, command_t* item_adding)
     }
     
 }
+
+void add_to_start_list(list_t* list, command_t* item_adding)
+{    
+    list_node_t* new_node = calloc(1, sizeof(list_node_t));
+    new_node->data = item_adding;
+
+    if(list->count == 0)
+    {
+        list->head = new_node;
+        list->tail = new_node;
+        list->count++; 
+    }
+    else
+    {
+        new_node->next = list->head;
+        list->head = new_node;
+        list->count++;
+    }
+}
+    

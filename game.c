@@ -4,29 +4,30 @@
 #include "asciiPrinting.h"
 #include "command.h"
 #include "list.h"
+#include "menu.h"
 #define COMMAND_LEN 2
 
 int main()
 {
-    // Create the list
-    list_t* commands = create_list();
+    int choice = 1;
 
-    //Fill list
-    for(int i = 0; i < COMMAND_LEN; i++)
+    while(choice)
     {
+        cancel_choice(&choice);
+        
+        // Create the list
+        list_t* commands = create_list();
+
         enqueue(commands, create_command());
 
+        for(int i = 0; i < COMMAND_LEN; i++)
+        {
+            command_t* command = dequeue(commands);
+            command->action();
+        }
     }
 
-    for(int i = 0; i < COMMAND_LEN; i++)
-    {
-        command_t* command = dequeue(commands);
-        command->action();
-    }
-
-
-    free_list(commands);
-
+    //free_list(commands);
 
     return 0;
 }
