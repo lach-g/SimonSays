@@ -9,6 +9,14 @@
 
 int main(int argc, char* argv[])
 {
+    if(argc > 2)
+    {
+        printf("Too many command line arguments provided\n");
+        printf("Run either with zero or one filename to read in.\n");
+        return -1;
+    }
+
+
     /* Calloc linked list */
     list_t* commands = create_list();
     
@@ -22,14 +30,14 @@ int main(int argc, char* argv[])
     char filename[FILE_STRING_LEN];
     int input = 0;
 
-
-
-
-
     /* Checking for arguments given and processing if so */
     scan_input(&argc, argv, filename, &input);
     process_input(filename, commands, &input, &command_count);
 
+    do
+    {
+        menu(&continuing);
+    } while (continuing);
 
     /*
      Taking Simon says commands into Linked List 
