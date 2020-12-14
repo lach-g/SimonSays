@@ -36,30 +36,9 @@ int main(int argc, char* argv[])
 
     do
     {
-        menu(&continuing);
+        menu(&continuing, &command_count, commands);
     } while (continuing);
 
-    /*
-     Taking Simon says commands into Linked List 
-    while(continuing)
-    {
-
-        
-        // Adds a command from the terminal to the queue
-        enqueue(commands, create_command_descript());
-        command_count++;
-
-        cancel_choice(&continuing);
-    }
-    
-    */
-
-    /* Using queue to pop each Simon Says command in order of input */
-    for(int i = 0; i < command_count; i++)
-    {
-        command_t* command = dequeue(commands);
-        command->action();
-    }
 
     //free_list(commands);
     
