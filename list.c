@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "list.h"
+#include "command.h"
 
 
 list_t* create_list()
@@ -10,17 +11,17 @@ list_t* create_list()
 void process_input(char* filename, list_t* list, int* input)
 {
     if(*input)
-    {
-        char string[64];
+    { 
+        char string[COM_STRING_LEN];
         FILE* f = fopen(filename, "r");
         if(f == NULL)
         {
-            perror("error reading file.\n");
+            perror("error opening the file: ");
         }
         else
         {
-
-            scan
+            fgets(string, COM_STRING_LEN, f);
+            printf("%s", string);
         }
         
 

@@ -26,12 +26,8 @@ int main(int argc, char* argv[])
 
 
 
-    /* Checking for arguments given */
+    /* Checking for arguments given and processing if so */
     scan_input(&argc, argv, filename, &input);
-    if(input)
-    {
-        printf("File read: %s\n", filename);
-    }
     process_input(filename, commands, &input);
 
 
