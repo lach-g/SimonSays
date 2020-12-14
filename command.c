@@ -33,7 +33,12 @@ command_t* create_command_descript()
 
 command_t* create_file_command(char* line)
 {
-    
+    command_t* command = malloc(1*sizeof(command_t));
+    line[strlen(line) - 1] = '\0';
+    strcpy(command->description, line);
+    create_command_action(command);
+    printf("%s\n", command->description);
+    return command;
 }
 
 

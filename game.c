@@ -28,11 +28,11 @@ int main(int argc, char* argv[])
 
     /* Checking for arguments given and processing if so */
     scan_input(&argc, argv, filename, &input);
-    process_input(filename, commands, &input);
+    process_input(filename, commands, &input, &command_count);
 
 
-
-    /* Taking Simon says commands into Linked List */
+    /*
+     Taking Simon says commands into Linked List 
     while(continuing)
     {
 
@@ -43,9 +43,8 @@ int main(int argc, char* argv[])
 
         cancel_choice(&continuing);
     }
-
-
-
+    
+    */
 
     /* Using queue to pop each Simon Says command in order of input */
     for(int i = 0; i < command_count; i++)
@@ -55,6 +54,6 @@ int main(int argc, char* argv[])
     }
 
     //free_list(commands);
-
+    
     return 0;
 }

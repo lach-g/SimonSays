@@ -8,21 +8,23 @@ list_t* create_list()
     return calloc(1, sizeof(list_t));
 }
 
-void process_input(char* filename, list_t* list, int* input)
+void process_input(char* filename, list_t* list, int* input, int* track_commands)
 {
     if(*input)
     { 
         char string[COM_STRING_LEN];
         FILE* f = fopen(filename, "r");
+
         if(f == NULL)
         {
             perror("error opening the file: ");
         }
-        else
+        while(fgets(string, COM_STRING_LEN, f))
         {
-            fgets(string, COM_STRING_LEN, f);
-            printf("%s", string);
+            enqueue(list, create_file_command(string));
+            (*track_commands)++;
         }
+        fclose(f);
         
 
     }
