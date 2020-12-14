@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #define FR_STRING_LEN 300
 #define COM_STRING_LEN 128
+#define FILE_STRING_LEN 64
 
 /* Pointer to animation functions */
 typedef void (*Action_ptr)();
@@ -18,6 +19,7 @@ typedef struct Command
 
 
 /* Function declarators */
+void scan_input(int* arg_count, char* argv[], char* filename, int* input);
 void printCommand(command_t* node);
 command_t* create_command();
 
