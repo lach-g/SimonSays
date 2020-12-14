@@ -2,6 +2,7 @@
 #include <string.h>
 #include "command.h"
 #include "asciiPrinting.h"
+#include "list.h"
 #define NUM_MOVES 6
 
 void scan_input(int* arg_count, char* argv[], char* filename, int* input)

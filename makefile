@@ -13,7 +13,7 @@ game.o : game.c asciiPrinting.h command.h list.h menu.h
 asciiPrinting.o : asciiPrinting.c asciiPrinting.h command.h
 	$(CC) -c asciiPrinting.c $(CFLAGS)
 
-command.o : command.c command.h asciiPrinting.h
+command.o : command.c command.h asciiPrinting.h list.h
 	$(CC) -c command.c $(CFLAGS)
 
 list.o : list.c list.h command.h

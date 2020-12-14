@@ -1,5 +1,7 @@
-#include "command.h"
+#ifndef HEADER_GUARD2
+#define HEADER_GUARD2
 
+#include "command.h"
 typedef struct ListNode
 {
     void* data;
@@ -13,6 +15,7 @@ typedef struct LinkedList
     int count;
 } list_t;
 
+void process_input(char* filename, list_t* list, int* input);
 list_t* create_list();
 void add_to_start_list(list_t* list, command_t* item_adding);
 void print_list(list_t* list);
@@ -20,5 +23,6 @@ void free_list(list_t* list);
 command_t* dequeue(list_t* list);
 void enqueue(list_t* list, command_t* item_adding);
 
+#endif
 
 

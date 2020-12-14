@@ -1,8 +1,31 @@
+#include <stdio.h>
 #include "list.h"
+
 
 list_t* create_list()
 {
     return calloc(1, sizeof(list_t));
+}
+
+void process_input(char* filename, list_t* list, int* input)
+{
+    if(*input)
+    {
+        char string[64];
+        FILE* f = fopen(filename, "r");
+        if(f == NULL)
+        {
+            perror("error reading file.\n");
+        }
+        else
+        {
+
+            scan
+        }
+        
+
+    }
+
 }
 
 void print_list(list_t* list)

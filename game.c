@@ -32,6 +32,7 @@ int main(int argc, char* argv[])
     {
         printf("File read: %s\n", filename);
     }
+    process_input(filename, commands, &input);
 
 
 
