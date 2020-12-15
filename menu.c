@@ -44,6 +44,10 @@ void menu(int* cont, int* command_count, list_t* list)
 
 void display_options()
 {
+    printf("--------------------------------------\n");
+    printf("         TO PLAY SIMON SAYS\n");
+    printf("    SELECT FROM THE OPTIONS BELOW:\n");
+    printf("--------------------------------------\n");
     printf("(1) Give Simon commands\n");
     printf("(2) Load commands from file\n");
     printf("(3) Delete commands\n");
@@ -58,10 +62,11 @@ void enter_commands(int* command_count, list_t* list)
     do
     {
         // Adds a command from the terminal to the queue
-        enqueue(list, create_command_descript());
-        command_count++;
-
+        command_t* new_command = create_command_descript(); 
+        enqueue(list, new_command);
+        (*command_count)++;
         cancel_choice(&entering_comm);
+
     }while(entering_comm);
     }
 

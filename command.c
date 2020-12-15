@@ -21,12 +21,10 @@ command_t* create_command_descript()
     command_t* command = malloc(1*sizeof(command_t));
 
     printf("Enter command:\n");
-    //scanf(" %[^\n]", command.description);
-    fgets(command->description, COM_STRING_LEN, stdin);
-    command->description[strlen(command->description) - 1] = '\0';
-
+    scanf(" %[^\n]", command->description);
+    //fgets(command->description, COM_STRING_LEN, stdin);
+    //command->description[strlen(command->description) - 1] = '\0';
     create_command_action(command);
-
     return command;
     
 }
@@ -37,7 +35,6 @@ command_t* create_file_command(char* line)
     line[strlen(line) - 1] = '\0';
     strcpy(command->description, line);
     create_command_action(command);
-    printf("%s\n", command->description);
     return command;
 }
 
