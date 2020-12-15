@@ -22,6 +22,7 @@ void print_list(list_t* list);
 void free_list(list_t* list);
 command_t* dequeue(list_t* list);
 void enqueue(list_t* list, command_t* item_adding);
+void delete_items(list_t* list, int* command_count);
 
 #endif
 

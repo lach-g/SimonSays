@@ -25,7 +25,7 @@ void menu(int* cont, int* command_count, list_t* list)
             printf("2 selected\n");
             break;
         case 3:
-            printf("3 selected\n");
+            delete_items(list, command_count);
             break;
         case 4:
             play_actions(list, command_count);
@@ -78,5 +78,6 @@ void play_actions(list_t* list, int* command_count)
         command_t* command = dequeue(list);
         command->action();
     }
+    *command_count = 0;
 }
 
