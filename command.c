@@ -10,6 +10,36 @@ void scan_input(char* argv[], char* filename)
     strcpy(filename, argv[1]);
 }
 
+int has_txt_extension(char* filename)
+{
+    
+    char* extension = strrchr(filename, '.');
+    if (!extension)
+    {
+        printf("File could not be read\n");
+        return 0;
+    }
+    else
+        if(strcmp(extension, ".txt") == 0)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+}
+
+
+command_t* create_file_command(char* line)
+{
+    command_t* command = malloc(1*sizeof(command_t));
+    line[strlen(line) - 1] = '\0';
+    strcpy(command->description, line);
+    create_command_action(command);
+    return command;
+}
+
 /* for the struct functions */
 command_t* create_command_descript()
 {
@@ -23,15 +53,6 @@ command_t* create_command_descript()
     create_command_action(command);
     return command;
     
-}
-
-command_t* create_file_command(char* line)
-{
-    command_t* command = malloc(1*sizeof(command_t));
-    line[strlen(line) - 1] = '\0';
-    strcpy(command->description, line);
-    create_command_action(command);
-    return command;
 }
 
 

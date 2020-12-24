@@ -33,14 +33,22 @@ int main(int argc, char* argv[])
     if(argc > 1)
     {
         scan_input(argv, filename);
-        read_file_to_queue(filename, commands, &command_count);
+        if(has_txt_extension(filename))
+        {
+            read_file_to_queue(filename, commands, &command_count);
+        }
+        else
+        {
+            printf("Not the proper extension\n");
+        }
+        
     }
 
     do
     {
         menu(&continuing, &command_count, commands);
     } while (continuing);
-
+    
 
     //free_list(commands);
     

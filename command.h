@@ -20,6 +20,7 @@ typedef struct Command
 
 /* Function declarators */
 void scan_input(char* argv[], char* filename);
+int has_txt_extension(char* filename);
 void printCommand(command_t* node);
 command_t* create_command_descript();
 command_t* create_command_action(command_t* to_complete);
