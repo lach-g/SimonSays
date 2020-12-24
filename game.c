@@ -28,11 +28,13 @@ int main(int argc, char* argv[])
 
     /* Filename and bool for command line input */
     char filename[FILE_STRING_LEN];
-    int input = 0;
 
-    /* Checking for arguments given and processing if so */
-    scan_input(&argc, argv, filename, &input);
-    process_input(filename, commands, &input, &command_count);
+    /* Checking for arguments given and processes if so */
+    if(argc > 1)
+    {
+        scan_input(argv, filename);
+        read_file_to_queue(filename, commands, &command_count);
+    }
 
     do
     {

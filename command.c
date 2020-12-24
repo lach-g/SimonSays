@@ -5,13 +5,9 @@
 #include "list.h"
 #define NUM_MOVES 6
 
-void scan_input(int* arg_count, char* argv[], char* filename, int* input)
+void scan_input(char* argv[], char* filename)
 {
-    if(*arg_count > 1)
-    {
-        *input = 1;
-        strcpy(filename, argv[1]);
-    }
+    strcpy(filename, argv[1]);
 }
 
 /* for the struct functions */

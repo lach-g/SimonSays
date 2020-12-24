@@ -22,7 +22,7 @@ void menu(int* cont, int* command_count, list_t* list)
             enter_commands(command_count, list);
             break;
         case 2:
-            printf("2 selected\n");
+            load_file_commands(list, command_count);
             break;
         case 3:
             delete_items(list, command_count);
@@ -31,11 +31,9 @@ void menu(int* cont, int* command_count, list_t* list)
             play_actions(list, command_count);
             break;
         case 5:
-            printf("5 selected\n");
-            break;
-        case 6:
             *cont = 0;
             break;
+            
     }
 
 
@@ -52,7 +50,7 @@ void display_options()
     printf("(2) Load commands from file\n");
     printf("(3) Delete commands\n");
     printf("(4) Play Simon Says\n");
-    printf("(6) Exit application\n"); 
+    printf("(5) Exit application\n"); 
 }
 
    /* Taking Simon says commands into Linked List */
@@ -79,5 +77,15 @@ void play_actions(list_t* list, int* command_count)
         command->action();
     }
     *command_count = 0;
+}
+
+/* Takes in string and prcocesses to read as a file */
+void load_file_commands(list_t* list, int* command_count)
+{
+    char file_name_to_read[FILE_STRING_LEN];
+    
+    printf("Enter filename:\n");
+    scanf(" %[^\n]", file_name_to_read);
+    read_file_to_queue(file_name_to_read, list, command_count);
 }
 
