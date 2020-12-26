@@ -38,7 +38,7 @@ void menu(int* cont, int* command_count, list_t* list)
                 break;
             case 4:
                 play_actions(list, command_count);
-                break;
+                break; 
             case 5:
                 *cont = 0;
                 break;
@@ -85,12 +85,21 @@ void enter_commands(int* command_count, list_t* list)
 /* Using queue to pop each Simon Says command in order of input */
 void play_actions(list_t* list, int* command_count)
 {
-    for(int i = 0; i < *command_count; i++)
+    if(*command_count > 0)
     {
-        command_t* command = dequeue(list);
-        command->action();
+        for(int i = 0; i < *command_count; i++)
+        {
+            command_t* command = dequeue(list);
+            command->action();
+        }
+        *command_count = 0;
     }
-    *command_count = 0;
+    else
+    {
+        printf("\n\nNO COMMANDS QUEUED\n");
+    }
+    
+
 }
 
 /* Takes in string and prcocesses to read as a file */
