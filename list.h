@@ -18,11 +18,9 @@ typedef struct LinkedList
 void process_input(char* filename, list_t* list, int* input, int* track_commands);
 void read_file_to_queue(char* filename, list_t* list, int* track_commands);
 list_t* create_list();
-void add_to_start_list(list_t* list, command_t* item_adding);
+void add_to_start_list(list_t* list, void* item_adding);
 void print_list(list_t* list);
 void free_list(list_t* list);
-command_t* dequeue(list_t* list);
-void enqueue(list_t* list, command_t* item_adding);
 void delete_items(list_t* list, int* command_count);
 
 #endif

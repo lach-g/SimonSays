@@ -3,7 +3,9 @@
 #include "command.h"
 #include "asciiPrinting.h"
 #include "list.h"
+#include "queue.h"
 #define NUM_MOVES 6
+#define NUM_DESCRIPTIONS 5
 
 void scan_input(char* argv[], char* filename)
 {
@@ -55,44 +57,7 @@ command_t* create_command_descript()
     
 }
 
-
-command_t* create_command_action(command_t* to_complete)
-{
-    char trick_command[COM_STRING_LEN];
-    strcpy(trick_command, to_complete->description);
-    trick_command[16] = '\0';
-
-    if(strcmp(to_complete->description, "Simon says dance") == 0)
-    {
-        to_complete->action = &dance;
-    }
-    else if(strcmp(to_complete->description, "Simon says left wave") == 0)
-    {
-        to_complete->action = &left_wave;
-    }
-    else if(strcmp(to_complete->description, "Simon says right wave") == 0)
-    {
-        to_complete->action = &right_wave;
-    }
-    else if(strcmp(to_complete->description, "Simon says touch head") == 0)
-    {
-        to_complete->action = &touch_head;
-    }
-    else if(strcmp(trick_command, "Simon didn't say") == 0)
-    {
-        to_complete->action = &shake_head;
-    }
-    else
-    {
-        to_complete->action = &shrug;
-    }
-
-    return to_complete;
-}
-
-
-void printCommand(command_t* node)
+void print_command(command_t* node)
 {
     node->action();
-    printf("Command is: %s\n", node->description);
 }

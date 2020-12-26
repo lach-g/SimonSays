@@ -2,6 +2,7 @@
 #include "list.h"
 #include "menu.h"
 #include "input_checking.h"
+#include "queue.h"
 
 
 void cancel_choice(int* choice)

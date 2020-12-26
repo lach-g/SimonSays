@@ -3,18 +3,6 @@
 #include "input_checking.h"
 #include "command.h"
 
-int is_integer(char* string)
-{
-    if(atoi(string) != 0)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
 int scan_for_int()
 {
     char check_input[NUM_STRING_LEN];

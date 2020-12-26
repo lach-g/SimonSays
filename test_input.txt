@@ -2,4 +2,3 @@ Simon says dance
 Simon says right wave
 Simon says left wave
 Simon says dance
-Fix the finish and continue error
