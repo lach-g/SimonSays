@@ -13,29 +13,41 @@ void cancel_choice(int* choice)
 void menu(int* cont, int* command_count, list_t* list)
 {
     int choice;
+    char check_choice[NUM_STRING_LEN];
     display_options();
-    scanf("%d", &choice);
-
-    switch(choice)
+    //scanf("%d", &choice);
+    scanf("%s", check_choice);
+    choice = atoi(check_choice);
+    if(choice != 0)
     {
-        case 1:
-            enter_commands(command_count, list);
-            break;
-        case 2:
-            load_file_commands(list, command_count);
-            break;
-        case 3:
-            delete_items(list, command_count);
-            break;
-        case 4:
-            play_actions(list, command_count);
-            break;
-        case 5:
-            *cont = 0;
-            break;
-            
+        switch(choice)
+        {
+            case 1:
+                enter_commands(command_count, list);
+                break;
+            case 2:
+                load_file_commands(list, command_count);
+                break;
+            case 3:
+                delete_items(list, command_count);
+                break;
+            case 4:
+                play_actions(list, command_count);
+                break;
+            case 5:
+                *cont = 0;
+                break;
+            default:
+                printf("\n\nENTER 1-5 INCLUSIVE FROM DISPLAYED OPTIONS\n");
+                break;
+                
+        }
     }
-
+    else
+    {
+        printf("\n\nENTER 1-5 INLCUSIVE FROM DISPLAYED OPTIONS\n");
+    }
+    
 
 
 }

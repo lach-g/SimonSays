@@ -5,6 +5,7 @@
 #define FR_STRING_LEN 300
 #define COM_STRING_LEN 128
 #define FILE_STRING_LEN 64
+#define NUM_STRING_LEN 8
 
 /* Pointer to animation functions */
 typedef void (*Action_ptr)();
