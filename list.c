@@ -26,10 +26,13 @@ void read_file_to_queue(char* filename, list_t* list, int* track_commands)
     {
         perror("error opening the file: ");
     }
-    while(fgets(string, COM_STRING_LEN, f))
+    else
     {
-        enqueue(list, create_file_command(string));
-        (*track_commands)++;
+        while(fgets(string, COM_STRING_LEN, f))
+        {
+            enqueue(list, create_file_command(string));
+            (*track_commands)++;
+        }
     }
     fclose(f); 
 }
