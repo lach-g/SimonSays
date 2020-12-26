@@ -52,9 +52,6 @@ void menu(int* cont, int* command_count, list_t* list)
     {
         printf("\n\nENTER 1-5 INCLUSIVE FROM DISPLAYED OPTIONS\n");
     }
-    
-
-
 }
 
 void display_options()
