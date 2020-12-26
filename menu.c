@@ -6,9 +6,14 @@
 
 void cancel_choice(int* choice)
 {
-    printf("(0) Finish (1) Continue inputting\n");
-    scanf("%d", choice);
-    getchar();
+    char check_choice[NUM_STRING_LEN];
+    printf("(1) Finish (2) Continue inputting\n");
+    scanf("%8s", check_choice);
+    if(is_integer(check_choice))
+    {
+        *choice = atoi(check_choice);
+        *choice = *choice - 1;
+    }
 }
 
 void menu(int* cont, int* command_count, list_t* list)

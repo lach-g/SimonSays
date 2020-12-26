@@ -33,6 +33,7 @@ void read_file_to_queue(char* filename, list_t* list, int* track_commands)
             enqueue(list, create_file_command(string));
             (*track_commands)++;
         }
+        printf("\n\nFILE SUCCESSFULLY READ\n");
     }
     fclose(f); 
 }

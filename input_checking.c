@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include "input_checking.h"
 
 int is_integer(char* string)
 {
