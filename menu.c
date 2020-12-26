@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "list.h"
 #include "menu.h"
+#include "input_checking.h"
 
 
 void cancel_choice(int* choice)
@@ -15,11 +16,10 @@ void menu(int* cont, int* command_count, list_t* list)
     int choice;
     char check_choice[NUM_STRING_LEN];
     display_options();
-    //scanf("%d", &choice);
-    scanf("%s", check_choice);
-    choice = atoi(check_choice);
-    if(choice != 0)
+    scanf("%8s", check_choice);
+    if(is_integer(check_choice))
     {
+        choice = atoi(check_choice);
         switch(choice)
         {
             case 1:
@@ -45,7 +45,7 @@ void menu(int* cont, int* command_count, list_t* list)
     }
     else
     {
-        printf("\n\nENTER 1-5 INLCUSIVE FROM DISPLAYED OPTIONS\n");
+        printf("\n\nENTER 1-5 INCLUSIVE FROM DISPLAYED OPTIONS\n");
     }
     
 

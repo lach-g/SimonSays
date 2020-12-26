@@ -1,6 +1,6 @@
 # Missing -ansi for compile time
 CFLAGS = -Wall -pedantic
-OBJ = game.o asciiPrinting.o command.o list.o menu.o
+OBJ = game.o asciiPrinting.o command.o list.o menu.o input_checking.o
 EXEC = asciiArt
 CC = gcc
 
@@ -21,6 +21,9 @@ list.o : list.c list.h command.h
 
 menu.o : menu.c menu.h
 	$(CC) -c menu.c $(CFLAGS)
+
+input_checking.o : input_checking.c input_checking.h
+	$(CC) -c input_checking.c $(CFLAGS)
 
 
 # Cleaning directory

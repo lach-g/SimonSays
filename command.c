@@ -47,7 +47,7 @@ command_t* create_command_descript()
     command_t* command = malloc(1*sizeof(command_t));
 
     printf("Enter command:\n");
-    scanf(" %[^\n]", command->description);
+    scanf(" %128[^\n]", command->description);
     //fgets(command->description, COM_STRING_LEN, stdin);
     //command->description[strlen(command->description) - 1] = '\0';
     create_command_action(command);
