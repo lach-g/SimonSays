@@ -15,7 +15,7 @@ int is_integer(char* string)
     }
 }
 
-int scan_if_int()
+int scan_for_int()
 {
     char check_input[NUM_STRING_LEN];
     int converted_input;

@@ -1,2 +1,2 @@
 int is_integer(char* string);
-int scan_if_int();
+int scan_for_int();

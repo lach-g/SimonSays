@@ -121,19 +121,18 @@ void add_to_start_list(list_t* list, command_t* item_adding)
 
 void delete_items(list_t* list, int* command_count)
 {
-    char check_input[NUM_STRING_LEN];
     int num_to_delete;
     printf("Enter number of commands to delete from start of queue:\n");
-    scanf("%8s", check_input);
-    if(is_integer(check_input))
+    int input_is_num = scan_for_int();
+    if(input_is_num)
     {
-        num_to_delete = atoi(check_input);
+        num_to_delete = input_is_num;
 
         while(num_to_delete > *command_count)
         {
             printf("Choose number of commands to delete up to %d that are currently loaded\n", *command_count);
             //scanf("%d", &num_to_delete);
-            int input_is_num =  scan_if_int();
+            int input_is_num =  scan_for_int();
             if(input_is_num)
             {
                 num_to_delete = input_is_num;
@@ -146,7 +145,7 @@ void delete_items(list_t* list, int* command_count)
             dequeue(list);
             (*command_count)--;
         }
-        printf("\n\nSuccessfully deleted commands.\n");
+        printf("\n\nSuccessfully deleted command(s).\n");
     }
     else
     {

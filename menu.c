@@ -6,25 +6,29 @@
 
 void cancel_choice(int* choice)
 {
-    char check_choice[NUM_STRING_LEN];
     printf("(1) Finish (2) Continue inputting\n");
-    scanf("%8s", check_choice);
-    if(is_integer(check_choice))
+    int input_is_num = scan_for_int();
+    if(input_is_num && input_is_num < 2)
     {
-        *choice = atoi(check_choice);
-        *choice = *choice - 1;
+        *choice = input_is_num - 1;
     }
+    else
+    {
+        printf("\n\nOPTION QUIT: Input must be either 1 or 2\n");
+        *choice = 0;
+    }
+    
 }
 
 void menu(int* cont, int* command_count, list_t* list)
 {
     int choice;
-    char check_choice[NUM_STRING_LEN];
     display_options();
-    scanf("%8s", check_choice);
-    if(is_integer(check_choice))
+    int input_is_num = scan_for_int();
+
+    if(input_is_num)
     {
-        choice = atoi(check_choice);
+        choice = input_is_num;
         switch(choice)
         {
             case 1:
