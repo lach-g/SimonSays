@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "list.h"
 #include "command.h"
 #include "input_checking.h"
@@ -32,6 +33,11 @@ void read_file_to_queue(char* filename, list_t* list, int* track_commands)
     {
         while(fgets(string, COM_STRING_LEN, f))
         {
+            int last_char = strlen(string) - 1;
+            if(string[last_char] == '\n')
+            {
+                string[last_char] = '\0';
+            }
             enqueue(list, create_file_command(string));
             (*track_commands)++;
         }

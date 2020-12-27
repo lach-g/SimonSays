@@ -37,10 +37,6 @@ command_t* dequeue(list_t* list)
 
 command_t* create_command_action(command_t* to_complete)
 {
-    char trick_command[COM_STRING_LEN];
-    strcpy(trick_command, to_complete->description);
-    trick_command[16] = '\0';
-
     char cut_input[COM_STRING_LEN];
     strcpy(cut_input, to_complete->description);
     cut_input[16] = '\0';
@@ -59,7 +55,7 @@ command_t* create_command_action(command_t* to_complete)
            found = 1;
            break;
        }
-       else if (strcmp(cut_input, trick_command) == 0)
+       else if (strcmp(cut_input, "Simon didn't say") == 0)
        {
            to_complete->action = &shake_head;
            found = 1;
@@ -89,9 +85,6 @@ list_t* create_command_reference_list()
 
     command_t* touch_head_ref = match_description_action("Simon says hands on head", &touch_head);
     enqueue(all_descriptions, touch_head_ref);
-
-    command_t* didnt_say_ref = match_description_action("Simon didn't say", &shake_head);
-    enqueue(all_descriptions, didnt_say_ref);
     
     return all_descriptions;
 }

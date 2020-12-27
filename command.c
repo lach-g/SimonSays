@@ -36,7 +36,8 @@ int has_txt_extension(char* filename)
 command_t* create_file_command(char* line)
 {
     command_t* command = malloc(1*sizeof(command_t));
-    line[strlen(line) - 1] = '\0';
+    line[strlen(line)] = '\0';
+    printf("%s", line);
     strcpy(command->description, line);
     create_command_action(command);
     return command;
