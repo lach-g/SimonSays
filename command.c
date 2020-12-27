@@ -32,32 +32,6 @@ int has_txt_extension(char* filename)
         }
 }
 
-
-command_t* create_file_command(char* line)
-{
-    command_t* command = malloc(1*sizeof(command_t));
-    line[strlen(line)] = '\0';
-    printf("%s", line);
-    strcpy(command->description, line);
-    create_command_action(command);
-    return command;
-}
-
-/* for the struct functions */
-command_t* create_command_descript()
-{
-
-    command_t* command = malloc(1*sizeof(command_t));
-
-    printf("Enter command:\n");
-    scanf(" %128[^\n]", command->description);
-    //fgets(command->description, COM_STRING_LEN, stdin);
-    //command->description[strlen(command->description) - 1] = '\0';
-    create_command_action(command);
-    return command;
-    
-}
-
 void print_command(command_t* node)
 {
     node->action();

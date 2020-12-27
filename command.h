@@ -24,8 +24,6 @@ typedef struct Command
 void scan_input(char* argv[], char* filename);
 int has_txt_extension(char* filename);
 void print_command(command_t* node);
-command_t* create_command_descript();
-command_t* create_file_command(char* line);
 
 
 #endif

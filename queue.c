@@ -35,20 +35,17 @@ command_t* dequeue(list_t* list)
     return command;
 }
 
-command_t* create_command_action(command_t* to_complete)
+command_t* create_command_action(command_t* to_complete, list_t* reference_commands)
 {
     char cut_input[COM_STRING_LEN];
     strcpy(cut_input, to_complete->description);
     cut_input[16] = '\0';
 
-    list_t* command_refs = create_command_reference_list();
-
     int found;
-    for(list_node_t* current = command_refs->head; current != NULL; current = current->next)
+    for(list_node_t* current = reference_commands->head; current != NULL; current = current->next)
     {
        found = 0;
        command_t* command_ref = current->data;
-       printf("to complete: %s compared to: %s\n", to_complete->description, command_ref->description);
        if(strcmp(to_complete->description, command_ref->description) == 0)
        {
            to_complete->action = command_ref->action;
@@ -72,7 +69,7 @@ command_t* create_command_action(command_t* to_complete)
 
 list_t* create_command_reference_list()
 {
-    list_t* all_descriptions = create_list();
+    list_t* all_descriptions = create_a_list();
     
     command_t* dance_ref = match_description_action("Simon says dance", &dance);
     enqueue(all_descriptions, dance_ref);
@@ -94,5 +91,28 @@ command_t* match_description_action(char* string, void(*action)())
     command_t* command = malloc(1*sizeof(command_t));
     strcpy(command->description, string);
     command->action = action;
+    return command;
+}
+
+/* for the struct functions */
+command_t* initiate_input_to_command(list_t* reference_commands)
+{
+
+    command_t* command = malloc(1*sizeof(command_t));
+
+    printf("Enter command:\n");
+    scanf(" %128[^\n]", command->description);
+    //fgets(command->description, COM_STRING_LEN, stdin);
+    //command->description[strlen(command->description) - 1] = '\0';
+    create_command_action(command, reference_commands);
+    return command;    
+}
+
+command_t* process_file_line_to_command(char* line, list_t* reference_commands)
+{
+    command_t* command = malloc(1*sizeof(command_t));
+    line[strlen(line)] = '\0';
+    strcpy(command->description, line);
+    create_command_action(command, reference_commands);
     return command;
 }

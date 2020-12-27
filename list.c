@@ -6,9 +6,18 @@
 #include "queue.h"
 
 
-list_t* create_list()
+list_t* create_user_list()
+{
+    list_t* user_list = create_a_list();
+    user_list->reference_commands = create_command_reference_list();
+
+    return user_list;
+}
+
+list_t* create_a_list()
 {
     return calloc(1, sizeof(list_t));
+
 }
 
 void process_input(char* filename, list_t* list, int* input, int* track_commands)
@@ -38,7 +47,7 @@ void read_file_to_queue(char* filename, list_t* list, int* track_commands)
             {
                 string[last_char] = '\0';
             }
-            enqueue(list, create_file_command(string));
+            enqueue(list, process_file_line_to_command(string, list->reference_commands));
             (*track_commands)++;
         }
         printf("\n\nFILE SUCCESSFULLY READ\n");
@@ -111,4 +120,22 @@ void delete_items(list_t* list, int* command_count)
     }
     
 }
-    
+
+void free_list(list_t* list)
+{
+    list_t* references = list->reference_commands;
+    free_a_list(references);
+    free_a_list(list);
+}
+
+void free_a_list(list_t* list)
+{
+    list_node_t* current = list->head;
+    while(current != NULL)
+    {
+        list_node_t* next = current->next;
+        free(current->data);
+        free(current);
+        current = next;
+    }
+}

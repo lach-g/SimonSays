@@ -16,10 +16,8 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-
     /* Calloc linked list */
-    list_t* commands = create_list();
-    
+    list_t* commands = create_user_list();
     /* set while condition to begin at least once */
     int continuing = 1;
 
@@ -50,7 +48,7 @@ int main(int argc, char* argv[])
     } while (continuing);
     
 
-    //free_list(commands);
+    free_list(commands);
     
     return 0;
 }

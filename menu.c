@@ -79,7 +79,7 @@ void enter_commands(int* command_count, list_t* list)
     do
     {
         // Adds a command from the terminal to the queue
-        command_t* new_command = create_command_descript(); 
+        command_t* new_command = initiate_input_to_command(list->reference_commands); 
         enqueue(list, new_command);
         (*command_count)++;
         cancel_choice(&entering_comm);
