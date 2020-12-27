@@ -138,4 +138,5 @@ void free_a_list(list_t* list)
         free(current);
         current = next;
     }
+    free(list);
 }
