@@ -9,7 +9,7 @@ void cancel_choice(int* choice)
 {
     printf("(1) Finish (2) Continue inputting\n");
     int input_is_num = scan_for_int();
-    if(input_is_num && input_is_num < 2)
+    if(input_is_num && input_is_num < 3)
     {
         *choice = input_is_num - 1;
     }

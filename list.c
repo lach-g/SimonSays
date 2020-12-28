@@ -97,7 +97,7 @@ void delete_items(list_t* list, int* command_count)
 
         while(num_to_delete > *command_count)
         {
-            printf("Choose number of commands to delete up to %d that are currently loaded\n", *command_count);
+            printf("Choose number of commands to delete up to %d that are currently loaded:\n", *command_count);
             //scanf("%d", &num_to_delete);
             int input_is_num =  scan_for_int();
             if(input_is_num)
@@ -112,7 +112,16 @@ void delete_items(list_t* list, int* command_count)
             dequeue(list);
             (*command_count)--;
         }
-        printf("\n\nSuccessfully deleted command(s).\n");
+        if(num_to_delete == 1)
+        {
+            printf("\n\nSuccessfully deleted command.\n");
+        }
+        else
+        {
+            printf("\n\nSuccessfully deleted commands.\n");
+            
+        }
+        
     }
     else
     {
