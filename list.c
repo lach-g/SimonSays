@@ -19,16 +19,7 @@ list_t* create_a_list()
     return calloc(1, sizeof(list_t));
 
 }
-/*
-void process_input(char* filename, list_t* list, int* input)
-{
-    if(*input)
-    { 
-        read_file_to_queue(filename, list);
-    }
 
-}
-*/
 void read_file_to_queue(char* filename, list_t* list)
 {
     char string[COM_STRING_LEN];
@@ -107,7 +98,8 @@ void delete_items(list_t* list)
 
         for(int i = 0; i < num_to_delete; i++)
         {
-            dequeue(list);
+            command_t* command = dequeue(list);
+            free(command);
         }
         if(num_to_delete == 1)
         {

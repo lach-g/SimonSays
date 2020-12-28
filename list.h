@@ -16,7 +16,6 @@ typedef struct LinkedList
     struct LinkedList* reference_commands;
 } list_t;
 
-//void process_input(char* filename, list_t* list);
 void read_file_to_queue(char* filename, list_t* list);
 list_t* create_user_list();
 list_t* create_a_list();
@@ -27,6 +26,6 @@ void delete_items(list_t* list);
 void free_list(list_t* list);
 void free_a_list(list_t* list);
 
-#endif
 
+#endif
 

@@ -95,6 +95,7 @@ void play_actions(list_t* list)
         {
             command_t* command = dequeue(list);
             command->action();
+            free(command);
         }
     }
     else
