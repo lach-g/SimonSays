@@ -19,17 +19,17 @@ list_t* create_a_list()
     return calloc(1, sizeof(list_t));
 
 }
-
-void process_input(char* filename, list_t* list, int* input, int* track_commands)
+/*
+void process_input(char* filename, list_t* list, int* input)
 {
     if(*input)
     { 
-        read_file_to_queue(filename, list, track_commands);
+        read_file_to_queue(filename, list);
     }
 
 }
-
-void read_file_to_queue(char* filename, list_t* list, int* track_commands)
+*/
+void read_file_to_queue(char* filename, list_t* list)
 {
     char string[COM_STRING_LEN];
     FILE* f = fopen(filename, "r");
@@ -48,7 +48,6 @@ void read_file_to_queue(char* filename, list_t* list, int* track_commands)
                 string[last_char] = '\0';
             }
             enqueue(list, process_file_line_to_command(string, list->reference_commands));
-            (*track_commands)++;
         }
         printf("\n\nFILE SUCCESSFULLY READ\n");
     }
@@ -86,7 +85,7 @@ void add_to_start_list(list_t* list, void* item_adding)
     }
 }
 
-void delete_items(list_t* list, int* command_count)
+void delete_items(list_t* list)
 {
     int num_to_delete;
     printf("Enter number of commands to delete from start of queue:\n");
@@ -95,9 +94,9 @@ void delete_items(list_t* list, int* command_count)
     {
         num_to_delete = input_is_num;
 
-        while(num_to_delete > *command_count)
+        while(num_to_delete > list->count)
         {
-            printf("Choose number of commands to delete up to %d that are currently loaded:\n", *command_count);
+            printf("Choose number of commands to delete up to %d that are currently loaded:\n", list->count);
             //scanf("%d", &num_to_delete);
             int input_is_num =  scan_for_int();
             if(input_is_num)
@@ -106,11 +105,9 @@ void delete_items(list_t* list, int* command_count)
             }
         }
 
-
         for(int i = 0; i < num_to_delete; i++)
         {
             dequeue(list);
-            (*command_count)--;
         }
         if(num_to_delete == 1)
         {

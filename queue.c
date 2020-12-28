@@ -17,6 +17,7 @@ void enqueue(list_t* list, void* item_adding)
         list->tail->next = new_node;
         list->tail = new_node;
     }
+    list->count++;
     
 }
 
@@ -32,6 +33,7 @@ command_t* dequeue(list_t* list)
 
     command_t* command = temp->data;
     free(temp);
+    list->count--;
     return command;
 }
 

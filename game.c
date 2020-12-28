@@ -21,9 +21,6 @@ int main(int argc, char* argv[])
     /* set while condition to begin at least once */
     int continuing = 1;
 
-    /* Number of commands input */
-    int command_count = 0;
-
     /* Filename and bool for command line input */
     char filename[FILE_STRING_LEN];
 
@@ -33,7 +30,7 @@ int main(int argc, char* argv[])
         scan_input(argv, filename);
         if(has_txt_extension(filename))
         {
-            read_file_to_queue(filename, commands, &command_count);
+            read_file_to_queue(filename, commands);
         }
         else
         {
@@ -44,7 +41,7 @@ int main(int argc, char* argv[])
 
     do
     {
-        menu(&continuing, &command_count, commands);
+        menu(&continuing, commands);
     } while (continuing);
     
 
