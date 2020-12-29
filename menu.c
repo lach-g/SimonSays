@@ -60,6 +60,19 @@ void menu(int* cont, list_t* list)
 
 void display_options()
 {
+    #ifdef EVERYTHING
+    printf("--------------------------------------\n");
+    printf("         TO PLAY SIMON SAYS\n");
+    printf("          EVERYTHING MODE\n");
+    printf("    SELECT FROM THE OPTIONS BELOW:\n");
+    printf("--------------------------------------\n");
+    printf("(1) Give Simon commands\n");
+    printf("(2) Load commands from file\n");
+    printf("(3) Delete commands\n");
+    printf("(4) Play Simon Says\n");
+    printf("(5) Exit application\n");
+    #endif
+    #ifndef EVERYTHING
     printf("--------------------------------------\n");
     printf("         TO PLAY SIMON SAYS\n");
     printf("    SELECT FROM THE OPTIONS BELOW:\n");
@@ -68,7 +81,8 @@ void display_options()
     printf("(2) Load commands from file\n");
     printf("(3) Delete commands\n");
     printf("(4) Play Simon Says\n");
-    printf("(5) Exit application\n"); 
+    printf("(5) Exit application\n");
+    #endif
 }
 
    /* Taking Simon says commands into Linked List */

@@ -8,3 +8,5 @@ list_t* create_command_reference_list();
 command_t* match_description_action(char* string, void(*action)());
 command_t* initiate_input_to_command(list_t* reference_commands);
 command_t* process_file_line_to_command(char* line, list_t* reference_commands);
+char* cut(char* line);
+Action_ptr find_action_everything_mode(char* description);

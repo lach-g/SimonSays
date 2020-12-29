@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
     /* Checking for arguments given and processes if so */
     if(argc > 1)
     {
-        scan_input(argv, filename);
+        scan_for_filename(argv, filename);
         if(has_txt_extension(filename))
         {
             read_file_to_queue(filename, commands);

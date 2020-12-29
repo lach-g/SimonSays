@@ -7,7 +7,7 @@
 #define NUM_MOVES 6
 #define NUM_DESCRIPTIONS 5
 
-void scan_input(char* argv[], char* filename)
+void scan_for_filename(char* argv[], char* filename)
 {
     strcpy(filename, argv[1]);
 }

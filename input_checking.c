@@ -5,7 +5,7 @@
 
 int scan_for_int()
 {
-    char check_input[NUM_STRING_LEN];
+    char check_input[INPUT_STRING_LEN];
     int converted_input;
 
     scanf("%8s",check_input);

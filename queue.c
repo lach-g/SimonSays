@@ -39,27 +39,34 @@ command_t* dequeue(list_t* list)
 
 command_t* create_command_action(command_t* to_complete, list_t* reference_commands)
 {
-    char cut_input[COM_STRING_LEN];
+    char cut_input[COMMAND_STRING_LEN];
     strcpy(cut_input, to_complete->description);
     cut_input[16] = '\0';
 
     int found;
     for(list_node_t* current = reference_commands->head; current != NULL; current = current->next)
     {
-       found = 0;
-       command_t* command_ref = current->data;
-       if(strcmp(to_complete->description, command_ref->description) == 0)
-       {
-           to_complete->action = command_ref->action;
-           found = 1;
-           break;
-       }
-       else if (strcmp(cut_input, "Simon didn't say") == 0)
-       {
-           to_complete->action = &shake_head;
-           found = 1;
-           break;
-       }
+        found = 0;
+        #ifdef EVERYTHING
+        Action_ptr action_match = find_action_everything_mode(to_complete->description);
+        to_complete->action = action_match;
+        found = 1;
+        break;
+        #endif
+
+        command_t* command_ref = current->data;
+        if(strcmp(to_complete->description, command_ref->description) == 0)
+        {
+            to_complete->action = command_ref->action;
+            found = 1;
+            break;
+        }
+        else if (strcmp(cut_input, "Simon didn't say") == 0)
+        {
+            to_complete->action = &shake_head;
+            found = 1;
+            break;
+        }
     }
     if(!found)
     {
@@ -104,7 +111,13 @@ command_t* initiate_input_to_command(list_t* reference_commands)
 
     printf("Enter command:\n");
     scanf(" %128[^\n]", command->description);
-    //fgets(command->description, COM_STRING_LEN, stdin);
+
+    #ifdef EVERYTHING
+    char* cut_command = cut(command->description);
+    strcpy(command->description, cut_command);
+    #endif
+
+    //fgets(command->description, COMMAND_STRING_LEN, stdin);
     //command->description[strlen(command->description) - 1] = '\0';
     create_command_action(command, reference_commands);
     return command;    
@@ -114,7 +127,66 @@ command_t* process_file_line_to_command(char* line, list_t* reference_commands)
 {
     command_t* command = malloc(1*sizeof(command_t));
     line[strlen(line)] = '\0';
+
+    #ifdef EVERYTHING
+    line = cut(line);
+    #endif
+
     strcpy(command->description, line);
     create_command_action(command, reference_commands);
     return command;
+}
+
+char* cut(char* line)
+{
+    char simon_said_test[COMMAND_STRING_LEN];
+    strcpy(simon_said_test, line);
+    simon_said_test[10] = '\0';
+
+    char simon_didnt_test[COMMAND_STRING_LEN];
+    strcpy(simon_didnt_test, line);
+    simon_didnt_test[16] = '\0';
+    char* action_string;
+
+    if(strcmp(simon_said_test, "Simon says") == 0)
+    {
+        action_string = &line[11];
+    }
+    else if(strcmp(simon_didnt_test, "Simon didn't say") == 0)
+    {
+        action_string = &line[17];
+    }    
+    else
+    {
+        action_string = &line[0];
+    }
+    
+    return action_string;
+}
+
+Action_ptr find_action_everything_mode(char* description)
+{
+    Action_ptr matched_action;
+
+    if(strcmp(description, "dance") == 0)
+    {
+        matched_action = &dance;
+    }
+    else if(strcmp(description, "left hand up") == 0)
+    {
+        matched_action = &left_wave;
+    }
+    else if(strcmp(description, "right hand up") == 0)
+    {
+        matched_action = &right_wave;
+    }
+    else if(strcmp(description, "touch head") == 0)
+    {
+        matched_action = &touch_head;
+    }
+    else
+    {
+        matched_action = &shrug;
+    }
+    return matched_action;
 }

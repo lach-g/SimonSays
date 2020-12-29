@@ -22,7 +22,7 @@ list_t* create_a_list()
 
 void read_file_to_queue(char* filename, list_t* list)
 {
-    char string[COM_STRING_LEN];
+    char string[COMMAND_STRING_LEN];
     FILE* f = fopen(filename, "r");
 
     if(f == NULL)
@@ -31,7 +31,7 @@ void read_file_to_queue(char* filename, list_t* list)
     }
     else
     {
-        while(fgets(string, COM_STRING_LEN, f))
+        while(fgets(string, COMMAND_STRING_LEN, f))
         {
             int last_char = strlen(string) - 1;
             if(string[last_char] == '\n')
