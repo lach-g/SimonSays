@@ -4,7 +4,8 @@
 #include "input_checking.h"
 #include "queue.h"
 
-
+/* Returns 1 linked list with a sub linked list prefilled
+   with command descriptions for reference against input */ 
 list_t* create_user_list()
 {
     list_t* user_list = create_a_list();
@@ -13,12 +14,14 @@ list_t* create_user_list()
     return user_list;
 }
 
+/* Returns a heap memory allocated linked list */
 list_t* create_a_list()
 {
     return calloc(1, sizeof(list_t));
 
 }
 
+/* Opens a file stream and adds each line as a command to the user list */
 void read_file_to_queue(char* filename, list_t* list)
 {
     char string[COMMAND_STRING_LEN];
@@ -44,37 +47,7 @@ void read_file_to_queue(char* filename, list_t* list)
     fclose(f); 
 }
 
-
-
-
-void print_list(list_t* list)
-{
-    list_node_t* i;
-    for(i = list->head; i != NULL; i = i->next)
-    {
-        print_command(i->data);
-    }
-}
-
-void add_to_start_list(list_t* list, void* item_adding)
-{    
-    list_node_t* new_node = calloc(1, sizeof(list_node_t));
-    new_node->data = item_adding;
-
-    if(list->count == 0)
-    {
-        list->head = new_node;
-        list->tail = new_node;
-        list->count++; 
-    }
-    else
-    {
-        new_node->next = list->head;
-        list->head = new_node;
-        list->count++;
-    }
-}
-
+/* CLEAN THIS */
 void delete_items(list_t* list)
 {
     if(list->count > 0)
@@ -123,6 +96,7 @@ void delete_items(list_t* list)
     }
 }
 
+/* Takes the user input list and frees it and the reference list inside it */
 void free_list(list_t* list)
 {
     list_t* references = list->reference_commands;
@@ -130,6 +104,7 @@ void free_list(list_t* list)
     free_a_list(list);
 }
 
+/* Frees a linked list node by node */
 void free_a_list(list_t* list)
 {
     list_node_t* current = list->head;

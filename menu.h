@@ -1,3 +1,7 @@
+#include "list.h"
+#include "input_checking.h"
+#include "queue.h"
+
 void cancel_choice(int* choice);
 void menu(int* cont, list_t* list);
 void display_options();

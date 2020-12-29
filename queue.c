@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "queue.h"
 
+/* Adds any kind of pointer to the back of the linked list */
 void enqueue(list_t* list, void* item_adding)
 {
     list_node_t* new_node = calloc(1, sizeof(list_node_t));
@@ -21,6 +22,8 @@ void enqueue(list_t* list, void* item_adding)
     
 }
 
+/* Pops the first node in the list from the front of the queue
+   and returns it */
 command_t* dequeue(list_t* list)
 {
     list_node_t* temp = list->head;
@@ -37,6 +40,10 @@ command_t* dequeue(list_t* list)
     return command;
 }
 
+/* Matches a command description with the corresponding action
+   by looping through the reference commands to check for a match
+   also conditional compilation allows for everything mode with only
+   the action part of the description looked at */
 command_t* create_command_action(command_t* to_complete, list_t* reference_commands)
 {
     char cut_input[COMMAND_STRING_LEN];
@@ -75,7 +82,8 @@ command_t* create_command_action(command_t* to_complete, list_t* reference_comma
     return to_complete;
 }
 
-
+/* Creating a reference list of possible input commands that can be matched returning
+   a linked list */
 list_t* create_command_reference_list()
 {
     list_t* all_descriptions = create_a_list();
@@ -95,7 +103,9 @@ list_t* create_command_reference_list()
     return all_descriptions;
 }
 
-command_t* match_description_action(char* string, void(*action)())
+/* Allocates heap space to a new command and inserts the string and action into the command struct
+   returning the new command pointer */
+command_t* match_description_action(char* string, Action_ptr action)
 {
     command_t* command = malloc(1*sizeof(command_t));
     strcpy(command->description, string);
@@ -103,22 +113,21 @@ command_t* match_description_action(char* string, void(*action)())
     return command;
 }
 
-/* for the struct functions */
+/* Parsing an input command and if conditional compilation is everything
+   command description is cut to only include action portion */
 command_t* initiate_input_to_command(list_t* reference_commands)
 {
 
     command_t* command = malloc(1*sizeof(command_t));
 
     printf("Enter command:\n");
-    scanf(" %128[^\n]", command->description);
+    scanf(" %64[^\n]", command->description);
 
     #ifdef EVERYTHING
     char* cut_command = cut(command->description);
     strcpy(command->description, cut_command);
     #endif
 
-    //fgets(command->description, COMMAND_STRING_LEN, stdin);
-    //command->description[strlen(command->description) - 1] = '\0';
     create_command_action(command, reference_commands);
     return command;    
 }
@@ -137,6 +146,8 @@ command_t* process_file_line_to_command(char* line, list_t* reference_commands)
     return command;
 }
 
+/* Cuts off the Simon does or doesn't say portion and returns action
+   unless not matched where it returns the whole line */
 char* cut(char* line)
 {
     char simon_said_test[COMMAND_STRING_LEN];
@@ -164,6 +175,8 @@ char* cut(char* line)
     return action_string;
 }
 
+/* Returns an action pointer that matches the description taken in
+   returning a shrug if not */
 Action_ptr find_action_everything_mode(char* description)
 {
     Action_ptr matched_action;

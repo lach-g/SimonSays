@@ -1,10 +1,7 @@
 #include <stdio.h>
-#include "list.h"
 #include "menu.h"
-#include "input_checking.h"
-#include "queue.h"
 
-
+/* Reassigns a pointer variable to a user input integer */
 void cancel_choice(int* choice)
 {
     printf("(1) Finish (2) Continue inputting\n");
@@ -20,6 +17,8 @@ void cancel_choice(int* choice)
     
 }
 
+/* Displays the user options and takes user input as integer
+   for choosing an option */
 void menu(int* cont, list_t* list)
 {
     int choice;
@@ -58,6 +57,8 @@ void menu(int* cont, list_t* list)
     }
 }
 
+/* Prints to terminal either Normal Mode Menu Options or Everything
+   Mode Menu Options based on conditional compilation */
 void display_options()
 {
     #ifdef EVERYTHING
@@ -99,7 +100,7 @@ void enter_commands(list_t* list)
     }while(entering_comm);
     }
 
-/* Using queue to pop each Simon Says command in order of input */
+/* Using queue to pop each Simon Says command off in order of input */
 void play_actions(list_t* list)
 {
     if(list->count > 0)
@@ -129,4 +130,3 @@ void load_file_commands(list_t* list)
     scanf(" %[^\n]", file_name_to_read);
     read_file_to_queue(file_name_to_read, list);
 }
-
