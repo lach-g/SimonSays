@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "list.h"
-#include "command.h"
 #include "input_checking.h"
 #include "queue.h"
 
@@ -112,7 +111,6 @@ void delete_items(list_t* list)
                 printf("\n\nSuccessfully deleted commands.\n");
                 
             }
-            
         }
         else
         {
