@@ -78,45 +78,51 @@ void add_to_start_list(list_t* list, void* item_adding)
 
 void delete_items(list_t* list)
 {
-    int num_to_delete;
-    printf("Enter number of commands to delete from start of queue:\n");
-    int input_is_num = scan_for_int();
-    if(input_is_num)
+    if(list->count > 0)
     {
-        num_to_delete = input_is_num;
-
-        while(num_to_delete > list->count)
+        int num_to_delete;
+        printf("Enter number of commands to delete from start of queue:\n");
+        int input_is_num = scan_for_int();
+        if(input_is_num)
         {
-            printf("Choose number of commands to delete up to %d that are currently loaded:\n", list->count);
-            //scanf("%d", &num_to_delete);
-            int input_is_num =  scan_for_int();
-            if(input_is_num)
+            num_to_delete = input_is_num;
+
+            while(num_to_delete > list->count)
             {
-                num_to_delete = input_is_num;
+                printf("Choose number of commands to delete up to %d that are currently loaded:\n", list->count);
+                //scanf("%d", &num_to_delete);
+                int input_is_num =  scan_for_int();
+                if(input_is_num)
+                {
+                    num_to_delete = input_is_num;
+                }
             }
-        }
 
-        for(int i = 0; i < num_to_delete; i++)
-        {
-            command_t* command = dequeue(list);
-            free(command);
-        }
-        if(num_to_delete == 1)
-        {
-            printf("\n\nSuccessfully deleted command.\n");
+            for(int i = 0; i < num_to_delete; i++)
+            {
+                command_t* command = dequeue(list);
+                free(command);
+            }
+            if(num_to_delete == 1)
+            {
+                printf("\n\nSuccessfully deleted command.\n");
+            }
+            else
+            {
+                printf("\n\nSuccessfully deleted commands.\n");
+                
+            }
+            
         }
         else
         {
-            printf("\n\nSuccessfully deleted commands.\n");
-            
+            printf("\n\nOPTION QUIT: Must enter an integer\n");
         }
-        
     }
     else
     {
-        printf("\n\nOPTION QUIT: Must enter an integer\n");
+        printf("\n\nNO COMMANDS QUEUED\n");
     }
-    
 }
 
 void free_list(list_t* list)

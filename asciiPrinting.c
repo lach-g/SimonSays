@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include "command.h"
 #include "asciiPrinting.h"
 #define STICK_REPEAT 5
 

@@ -1,11 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-#include "asciiPrinting.h"
-#include "command.h"
-#include "list.h"
-#include "input_checking.h"
-#include "menu.h"
+#include "game.h"
 
 int main(int argc, char* argv[])
 {
@@ -17,8 +13,8 @@ int main(int argc, char* argv[])
         return -1;
     }
 
-    /* Calloc the user linked list containing a reference list of
-       command descriptions */
+    /* Calloc the user linked list to take commands
+    also containing a reference linked list of command descriptions */
     list_t* commands = create_user_list();
 
     /* Checking for arguments given and processes if so */

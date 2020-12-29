@@ -1,3 +1,5 @@
+#include "command.h"
+
 #define DANCE1 "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n _  \\__V__/\n  \\    |\n    ---|---\n       |    \\\n      / \\    -\n      \\ /\n      / \\\n     -   -\n\0"
 #define DANCE2 "              -------------------\n             | Simon says dance! |\n      ---    | So I will DANCE   |\n    /     \\ / -------------------\n   | 0   0 |\n   |   ^   |\n    \\__V__/  _\n       |    /\n    ---|---\n   /   |      \n -    / \\     \n     /   \\\n    |     |\n   -       -\n\0"
 #define LEFT_WAVE1 "              ----------------------------\n             | Simon said left hand wave! |\n      ---    |      So I will WAVE        |\n    /     \\ / ----------------------------\n   | 0   0 |\n   |   ^   |\n    \\__V__/\n       |\n ------|------\n       |\n      / \\\n     /   \\\n    |     |\n   -       -\n"
