@@ -11,7 +11,8 @@
 /* Pointer to animation functions */
 typedef void (*Action_ptr)();
 
-/* Command node structure */
+/* Command node structure to contain the description of the simon says command
+   and a function pointer to the corresponding action */
 typedef struct Command
 {
     char description[COMMAND_STRING_LEN];
@@ -19,12 +20,9 @@ typedef struct Command
 
 } command_t;
 
-
-/* Function declarators */
 void scan_for_filename(char* argv[], char* filename);
 int has_txt_extension(char* filename);
 void print_command(command_t* node);
-
 
 #endif
 

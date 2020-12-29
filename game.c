@@ -4,47 +4,36 @@
 #include "asciiPrinting.h"
 #include "command.h"
 #include "list.h"
+#include "input_checking.h"
 #include "menu.h"
-#define COMMAND_LEN 2
 
 int main(int argc, char* argv[])
 {
+    /* More than two arguments from command line
+       quits program with runtime instructions displayed */
     if(argc > 2)
     {
-        printf("Too many command line arguments provided\n");
-        printf("Run either with zero or one filename to read in.\n");
+        too_many_args();
         return -1;
     }
 
-    /* Calloc linked list */
+    /* Calloc the user linked list containing a reference list of
+       command descriptions */
     list_t* commands = create_user_list();
-    /* set while condition to begin at least once */
-    int continuing = 1;
-
-    /* Filename and bool for command line input */
-    char filename[FILE_STRING_LEN];
 
     /* Checking for arguments given and processes if so */
     if(argc > 1)
     {
-        scan_for_filename(argv, filename);
-        if(has_txt_extension(filename))
-        {
-            read_file_to_queue(filename, commands);
-        }
-        else
-        {
-            printf("Not the proper extension\n");
-        }
-        
+        process_file_input(commands, argv);
     }
 
+    /* set while condition to show the user menu at least once */
+    int continuing = 1;
     do
     {
         menu(&continuing, commands);
     } while (continuing);
     
-
     free_list(commands);
     
     return 0;
