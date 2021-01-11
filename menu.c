@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "menu.h"
 
 /* Reassigns a pointer variable to a user input integer */
@@ -98,7 +99,7 @@ void enter_commands(list_t* list)
         cancel_choice(&entering_comm);
 
     }while(entering_comm);
-    }
+ }
 
 /* Using queue to pop each Simon Says command off in order of input */
 void play_actions(list_t* list)

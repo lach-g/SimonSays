@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include "queue.h"
 
+#define DESCRIPTION_FORMAT " %64[^\n]"
+
+
 /* Adds any kind of pointer to the back of the linked list */
 void enqueue(list_t* list, void* item_adding)
 {
@@ -121,7 +124,7 @@ command_t* initiate_input_to_command(list_t* reference_commands)
     command_t* command = malloc(1*sizeof(command_t));
 
     printf("Enter command:\n");
-    scanf(" %64[^\n]", command->description);
+    scanf(DESCRIPTION_FORMAT, command->description);
 
     #ifdef EVERYTHING
     char* cut_command = cut(command->description);

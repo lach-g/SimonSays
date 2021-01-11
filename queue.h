@@ -1,6 +1,9 @@
 #include "list.h"
 #include "asciiPrinting.h"
 
+#define DESCRIPTION_FORMAT " %64[^\n]"
+
+
 void enqueue(list_t* list, void* item_adding);
 command_t* dequeue(list_t* list);
 command_t* create_command_action(command_t* to_complete, list_t* reference_commands);

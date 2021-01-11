@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "input_checking.h"
 
+
 /* Prints runtime usage instructions to terminal */
 void too_many_args()
 {
@@ -15,7 +16,7 @@ int scan_for_int()
     char check_input[INPUT_STRING_LEN];
     int converted_input;
 
-    scanf("%8s",check_input);
+    scanf(INPUT_FORMAT, check_input);
     converted_input = atoi(check_input);
     if(converted_input)
     {
