@@ -8,7 +8,7 @@ CC = gcc
 $(EXEC) : $(OBJ)
 	$(CC) $(OBJ) -o $(EXEC)
 
-game.o : game.c asciiPrinting.h command.h list.h menu.h input_checking.o
+game.o : game.c asciiPrinting.h command.h list.h menu.h input_checking.h
 	$(CC) -c game.c $(CFLAGS)
 
 asciiPrinting.o : asciiPrinting.c asciiPrinting.h command.h
