@@ -14,7 +14,7 @@
 #define SHRUG2 "             ------------------------------------\n            |  Simon doesn't know how to do that |\n      ---  / ------------------------------------\n    /     \\\n   | 0   0 |\n   |   ^   |\n    \\__V__/\n       |\n ------|------\n       |\n      / \\\n     /   \\\n    |     |\n   -       -\n"
 #define REFRESH "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 
-void animation(char* display_frame1, char* display_frame2);
+void animation(const char* display_frame1, const char* display_frame2);
 void dance();
 void left_wave();
 void right_wave();

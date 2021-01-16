@@ -6,4 +6,4 @@
 
 void too_many_args();
 int scan_for_int();
-void process_file_input(list_t* list, char** input_array);
+void process_file_input(list_t* list, const char** input_array);

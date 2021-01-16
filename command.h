@@ -21,9 +21,9 @@ typedef struct Command
 
 } command_t;
 
-void scan_for_filename(char* argv[], char* filename);
-int has_txt_extension(char* filename);
-void print_command(command_t* node);
+void scan_for_filename(const char* argv[], char* filename);
+int has_txt_extension(const char* filename);
+void print_command(const command_t* node);
 
 #endif
 

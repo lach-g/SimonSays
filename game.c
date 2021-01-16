@@ -3,7 +3,7 @@
 #include <string.h>
 #include "game.h"
 
-int main(int argc, char* argv[])
+int main(int argc, const char* argv[])
 {
     /* More than two arguments from command line
        quits program with runtime instructions displayed */

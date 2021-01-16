@@ -30,7 +30,7 @@ int scan_for_int()
 
 /* Processes the runtime filename inputted for .txt extension
    reading it's lines into the linked list */
-void process_file_input(list_t* list, char** input_array)
+void process_file_input(list_t* list, const char** input_array)
 {
     char filename[FILE_STRING_LEN];
     scan_for_filename(input_array, filename);

@@ -8,7 +8,7 @@
 
 /* Prints to terminal the 2 given frames manipulated to appear as moving images 
    by repeatably refreshing the terminal with new lines */
-void animation(char* display_frame1, char* display_frame2)
+void animation(const char* display_frame1, const char* display_frame2)
 {
     int i;
     for(i = 0; i < STICK_REPEAT; i++)

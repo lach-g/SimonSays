@@ -23,13 +23,11 @@ void cancel_choice(int* choice)
    for choosing an option */
 void menu(int* cont, list_t* list)
 {
-    int choice;
     display_options();
-    int input_is_num = scan_for_int();
+    const int choice = scan_for_int();
 
-    if(input_is_num)
+    if(choice)
     {
-        choice = input_is_num;
         switch(choice)
         {
             case ENTER_COMMANDS:
@@ -50,7 +48,6 @@ void menu(int* cont, list_t* list)
             default:
                 printf("\n\nENTER 1-5 INCLUSIVE FROM DISPLAYED OPTIONS\n");
                 break;
-                
         }
     }
     else
@@ -107,7 +104,7 @@ void play_actions(list_t* list)
 {
     if(list->count > 0)
     {
-        int command_count = list->count;
+        const int command_count = list->count;
         for(int i = 0; i < command_count; i++)
         {
             command_t* command = dequeue(list);
@@ -127,9 +124,8 @@ void play_actions(list_t* list)
 void load_file_commands(list_t* list)
 {
     char file_name_to_read[FILE_STRING_LEN];
-    
     printf("Enter filename:\n");
-    // scanf(" %[^\n]", file_name_to_read);
+    
     int flush;
     while((flush = getchar()) != '\n' && flush != EOF);
 

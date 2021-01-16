@@ -47,7 +47,7 @@ command_t* dequeue(list_t* list)
    by looping through the reference commands to check for a match
    also conditional compilation allows for everything mode with only
    the action part of the description looked at */
-command_t* create_command_action(command_t* to_complete, list_t* reference_commands)
+command_t* create_command_action(command_t* to_complete, const list_t* reference_commands)
 {
     char cut_input[COMMAND_STRING_LEN];
     strcpy(cut_input, to_complete->description);
@@ -108,7 +108,7 @@ list_t* create_command_reference_list()
 
 /* Allocates heap space to a new command and inserts the string and action into the command struct
    returning the new command pointer */
-command_t* match_description_action(char* string, Action_ptr action)
+command_t* match_description_action(const char* string, const Action_ptr action)
 {
     command_t* command = malloc(1*sizeof(command_t));
     strcpy(command->description, string);
@@ -118,7 +118,7 @@ command_t* match_description_action(char* string, Action_ptr action)
 
 /* Parsing an input command and if conditional compilation is everything
    command description is cut to only include action portion */
-command_t* initiate_input_to_command(list_t* reference_commands)
+command_t* initiate_input_to_command(const list_t* reference_commands)
 {
 
     command_t* command = malloc(1*sizeof(command_t));
@@ -135,7 +135,7 @@ command_t* initiate_input_to_command(list_t* reference_commands)
     return command;    
 }
 
-command_t* process_file_line_to_command(char* line, list_t* reference_commands)
+command_t* process_file_line_to_command(char* line, const list_t* reference_commands)
 {
     command_t* command = malloc(1*sizeof(command_t));
     line[strlen(line)] = '\0';
@@ -180,7 +180,7 @@ char* cut(char* line)
 
 /* Returns an action pointer that matches the description taken in
    returning a shrug if not */
-Action_ptr find_action_everything_mode(char* description)
+Action_ptr find_action_everything_mode(const char* description)
 {
     Action_ptr matched_action;
 

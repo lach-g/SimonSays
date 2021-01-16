@@ -22,7 +22,7 @@ list_t* create_a_list()
 }
 
 /* Opens a file stream and adds each line as a command to the user list */
-void read_file_to_queue(char* filename, list_t* list)
+void read_file_to_queue(const char* filename, list_t* list)
 {
     char string[COMMAND_STRING_LEN];
     FILE* f = fopen(filename, "r");
@@ -35,7 +35,7 @@ void read_file_to_queue(char* filename, list_t* list)
     {
         while(fgets(string, COMMAND_STRING_LEN, f))
         {
-            int last_char = strlen(string) - 1;
+            const int last_char = strlen(string) - 1;
             if(string[last_char] == '\n')
             {
                 string[last_char] = '\0';
@@ -52,13 +52,10 @@ void delete_items(list_t* list)
 {
     if(list->count > 0)
     {
-        int num_to_delete;
         printf("Enter number of commands to delete from start of queue:\n");
-        int input_is_num = scan_for_int();
-        if(input_is_num)
+        int num_to_delete = scan_for_int();
+        if(num_to_delete)
         {
-            num_to_delete = input_is_num;
-
             while(num_to_delete > list->count)
             {
                 printf("Choose number of commands to delete up to %d that are currently loaded:\n", list->count);
@@ -74,15 +71,7 @@ void delete_items(list_t* list)
                 command_t* command = dequeue(list);
                 free(command);
             }
-            if(num_to_delete == 1)
-            {
-                printf("\n\nSuccessfully deleted command.\n");
-            }
-            else
-            {
-                printf("\n\nSuccessfully deleted commands.\n");
-                
-            }
+            delete_message(&num_to_delete);  
         }
         else
         {
@@ -93,6 +82,20 @@ void delete_items(list_t* list)
     {
         printf("\n\nNO COMMANDS QUEUED\n");
     }
+}
+
+/* Ensures the confirmation of success in deleting has the correct conjugation */
+void delete_message(const int* total_deleted)
+{
+    if(*total_deleted == 1)
+        {
+            printf("\n\nSuccessfully deleted command.\n");
+        }
+        else
+        {
+            printf("\n\nSuccessfully deleted commands.\n");
+            
+        }
 }
 
 /* Takes the user input list and frees it and the reference list inside it */
