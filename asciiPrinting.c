@@ -10,30 +10,17 @@
    by repeatably refreshing the terminal with new lines */
 void animation(char* display_frame1, char* display_frame2)
 {
-    char* frame1 = malloc(FRAME_STRING_LEN * sizeof(char));
-    char* frame2 = malloc(FRAME_STRING_LEN * sizeof(char));
-    char* refresh = malloc(FRAME_STRING_LEN * sizeof(char));
-
-    strcpy(frame1, display_frame1);
-    strcpy(frame2, display_frame2);
-    strcpy(refresh, REFRESH);
-
     int i;
     for(i = 0; i < STICK_REPEAT; i++)
     {
-        printf("%s%s", refresh, frame1);
+        printf("%s%s", REFRESH, display_frame1);
         //printf("%s", frame1);
         usleep(250000);
-        printf("%s%s", refresh, frame2);
+        printf("%s%s", REFRESH, display_frame2);
         //printf("%s", frame2);
         usleep(250000);
     }
-    printf("%s", refresh);
-
-    free(frame1);
-    free(frame2);
- 
-    free(refresh);
+    printf("%s", REFRESH);
 }
 
 /* Prints to terminal dancing frames using the animation function */
