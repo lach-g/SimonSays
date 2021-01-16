@@ -6,8 +6,8 @@
 /* Prints runtime usage instructions to terminal */
 void too_many_args()
 {
-    printf("Too many command line arguments provided\n");
-    printf("Run either with zero or one filename to read in.\n");
+    printf("Too many command line arguments provided\n"
+            "Run either with zero or one filename to read in.\n");
 }
 
 /* Scans for user input and returns as integer or zero if not */

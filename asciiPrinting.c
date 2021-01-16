@@ -21,11 +21,11 @@ void animation(char* display_frame1, char* display_frame2)
     int i;
     for(i = 0; i < STICK_REPEAT; i++)
     {
-        printf("%s", refresh);
-        printf("%s", frame1);
+        printf("%s%s", refresh, frame1);
+        //printf("%s", frame1);
         usleep(250000);
-        printf("%s", refresh);
-        printf("%s", frame2);
+        printf("%s%s", refresh, frame2);
+        //printf("%s", frame2);
         usleep(250000);
     }
     printf("%s", refresh);
