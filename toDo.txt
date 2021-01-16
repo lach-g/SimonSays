@@ -1,4 +1,4 @@
-1. change scan inputs to use code by rob
+1. change scan inputs to use code by rob ✅
 2. add consts' everywhere
 3. enums for switch menu
 4. clean up print statements by splitting thequotes

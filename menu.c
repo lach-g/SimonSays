@@ -32,19 +32,19 @@ void menu(int* cont, list_t* list)
         choice = input_is_num;
         switch(choice)
         {
-            case 1:
+            case ENTER_COMMANDS:
                 enter_commands(list);
                 break;
-            case 2:
+            case LOAD_FILE_COMMANDS:
                 load_file_commands(list);
                 break;
-            case 3:
+            case DELETE_COMMANDS:
                 delete_items(list);
                 break;
-            case 4:
+            case PLAY:
                 play_actions(list);
                 break; 
-            case 5:
+            case EXIT:
                 *cont = 0;
                 break;
             default:
