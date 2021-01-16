@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "menu.h"
 
 /* Reassigns a pointer variable to a user input integer */
@@ -128,6 +129,15 @@ void load_file_commands(list_t* list)
     char file_name_to_read[FILE_STRING_LEN];
     
     printf("Enter filename:\n");
-    scanf(" %[^\n]", file_name_to_read);
+    // scanf(" %[^\n]", file_name_to_read);
+    int flush;
+    while((flush = getchar()) != '\n' && flush != EOF);
+
+    fgets(file_name_to_read, FILE_STRING_LEN, stdin);
+    int len = strlen(file_name_to_read);
+    if(len > 0 && file_name_to_read[len - 1] == '\n')
+    {
+        file_name_to_read[--len] = '\0';
+    }
     read_file_to_queue(file_name_to_read, list);
 }

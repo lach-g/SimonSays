@@ -62,7 +62,6 @@ void delete_items(list_t* list)
             while(num_to_delete > list->count)
             {
                 printf("Choose number of commands to delete up to %d that are currently loaded:\n", list->count);
-                //scanf("%d", &num_to_delete);
                 int input_is_num =  scan_for_int();
                 if(input_is_num)
                 {
