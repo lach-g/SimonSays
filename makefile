@@ -1,5 +1,5 @@
 # Usage for EVERYTHING MODE: 'make CFLAGS="-D EVERYTHING'
-CFLAGS = -Wall -pedantic -ansi
+CFLAGS = -Wall -pedantic
 OBJ = game.o asciiPrinting.o command.o list.o menu.o input_checking.o queue.o
 EXEC = simon_says
 CC = gcc
