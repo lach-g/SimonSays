@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "queue.h"
 
-#define DESCRIPTION_FORMAT " %64[^\n]"
-
 
 /* Adds any kind of pointer to the back of the linked list */
 void enqueue(list_t* list, void* item_adding)
@@ -29,6 +27,7 @@ void enqueue(list_t* list, void* item_adding)
    and returns it */
 command_t* dequeue(list_t* list)
 {
+    command_t* command;
     list_node_t* temp = list->head;
     list->head = list->head->next;
 
@@ -37,7 +36,7 @@ command_t* dequeue(list_t* list)
         list->tail = NULL;
     }
 
-    command_t* command = temp->data;
+    command = temp->data;
     free(temp);
     list->count--;
     return command;
@@ -49,12 +48,14 @@ command_t* dequeue(list_t* list)
    the action part of the description looked at */
 command_t* create_command_action(command_t* to_complete, const list_t* reference_commands)
 {
+    command_t* command_ref;
     char cut_input[COMMAND_STRING_LEN];
+    int found;
+    list_node_t* current;
     strcpy(cut_input, to_complete->description);
     cut_input[16] = '\0';
 
-    int found;
-    for(list_node_t* current = reference_commands->head; current != NULL; current = current->next)
+    for(current = reference_commands->head; current != NULL; current = current->next)
     {
         found = 0;
         #ifdef EVERYTHING
@@ -64,7 +65,7 @@ command_t* create_command_action(command_t* to_complete, const list_t* reference
         break;
         #endif
 
-        command_t* command_ref = current->data;
+        command_ref = current->data;
         if(strcmp(to_complete->description, command_ref->description) == 0)
         {
             to_complete->action = command_ref->action;
@@ -89,18 +90,22 @@ command_t* create_command_action(command_t* to_complete, const list_t* reference
    a linked list */
 list_t* create_command_reference_list()
 {
+    command_t* dance_ref;
+    command_t* left_wave_ref;
+    command_t* right_wave_ref;
+    command_t* touch_head_ref;
     list_t* all_descriptions = create_a_list();
     
-    command_t* dance_ref = match_description_action("Simon says dance", &dance);
+    dance_ref = match_description_action("Simon says dance", &dance);
     enqueue(all_descriptions, dance_ref);
 
-    command_t* left_wave_ref = match_description_action("Simon says left hand up", &left_wave);
+    left_wave_ref = match_description_action("Simon says left hand up", &left_wave);
     enqueue(all_descriptions, left_wave_ref);
 
-    command_t* right_wave_ref = match_description_action("Simon says right hand up", &right_wave);
+    right_wave_ref = match_description_action("Simon says right hand up", &right_wave);
     enqueue(all_descriptions, right_wave_ref);
 
-    command_t* touch_head_ref = match_description_action("Simon says hands on head", &touch_head);
+    touch_head_ref = match_description_action("Simon says hands on head", &touch_head);
     enqueue(all_descriptions, touch_head_ref);
     
     return all_descriptions;
@@ -135,6 +140,8 @@ command_t* initiate_input_to_command(const list_t* reference_commands)
     return command;    
 }
 
+/* A malloc for the line and then copying into the command description
+    feeding this command into creating a command action */
 command_t* process_file_line_to_command(char* line, const list_t* reference_commands)
 {
     command_t* command = malloc(1*sizeof(command_t));
@@ -154,13 +161,14 @@ command_t* process_file_line_to_command(char* line, const list_t* reference_comm
 char* cut(char* line)
 {
     char simon_said_test[COMMAND_STRING_LEN];
+    char simon_didnt_test[COMMAND_STRING_LEN];
+    char* action_string;
+
     strcpy(simon_said_test, line);
     simon_said_test[10] = '\0';
 
-    char simon_didnt_test[COMMAND_STRING_LEN];
     strcpy(simon_didnt_test, line);
     simon_didnt_test[16] = '\0';
-    char* action_string;
 
     if(strcmp(simon_said_test, "Simon says") == 0)
     {

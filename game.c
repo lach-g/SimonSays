@@ -1,10 +1,10 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
 #include "game.h"
 
 int main(int argc, const char* argv[])
 {
+    list_t* commands;
+    int continuing = 1;
+
     /* More than two arguments from command line
        quits program with runtime instructions displayed */
     if(argc > 2)
@@ -15,7 +15,7 @@ int main(int argc, const char* argv[])
 
     /* Calloc the user linked list to take commands
     also containing a reference linked list of command descriptions */
-    list_t* commands = create_user_list();
+    commands = create_user_list();
 
     /* Checking for arguments given and processes if so */
     if(argc > 1)
@@ -24,7 +24,6 @@ int main(int argc, const char* argv[])
     }
 
     /* set while condition to show the user menu at least once */
-    int continuing = 1;
     do
     {
         menu(&continuing, commands);

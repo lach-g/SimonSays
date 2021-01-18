@@ -47,26 +47,28 @@ void read_file_to_queue(const char* filename, list_t* list)
     fclose(f); 
 }
 
-/* CLEAN THIS */
+/* Deletes the appropriate amount of commands repeating until a valid number from the user is entered */
 void delete_items(list_t* list)
 {
+    int num_to_delete, input_is_num, i;
+
     if(list->count > 0)
     {
         printf("Enter number of commands to delete from start of queue:\n");
-        int num_to_delete = scan_for_int();
+        num_to_delete = scan_for_int();
         if(num_to_delete)
         {
             while(num_to_delete > list->count)
             {
                 printf("Choose number of commands to delete up to %d that are currently loaded:\n", list->count);
-                int input_is_num =  scan_for_int();
+                input_is_num =  scan_for_int();
                 if(input_is_num)
                 {
                     num_to_delete = input_is_num;
                 }
             }
 
-            for(int i = 0; i < num_to_delete; i++)
+            for(i = 0; i < num_to_delete; i++)
             {
                 command_t* command = dequeue(list);
                 free(command);

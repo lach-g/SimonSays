@@ -14,10 +14,8 @@ void animation(const char* display_frame1, const char* display_frame2)
     for(i = 0; i < STICK_REPEAT; i++)
     {
         printf("%s%s", REFRESH, display_frame1);
-        //printf("%s", frame1);
         usleep(250000);
         printf("%s%s", REFRESH, display_frame2);
-        //printf("%s", frame2);
         usleep(250000);
     }
     printf("%s", REFRESH);

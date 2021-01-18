@@ -4,14 +4,6 @@
 #include "asciiPrinting.h"
 #include "list.h"
 #include "queue.h"
-#define NUM_MOVES 6
-#define NUM_DESCRIPTIONS 5
-
-/* Copies the second item in the input array into the filename variable created in main */
-void scan_for_filename(const char* argv[], char* filename)
-{
-    strcpy(filename, argv[1]);
-}
 
 /* Boolean that parses the end of a variable to check whether it has a txt file extension
    returning true if so */

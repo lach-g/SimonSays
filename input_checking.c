@@ -1,7 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "input_checking.h"
 
+/* Copies the second item in the input array into the filename variable created in main */
+void scan_for_filename(const char* argv[], char* filename)
+{
+    strcpy(filename, argv[1]);
+}
 
 /* Prints runtime usage instructions to terminal */
 void too_many_args()

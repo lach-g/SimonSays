@@ -1,8 +1,7 @@
-# Missing -ansi for compile time
 # Usage for EVERYTHING MODE: 'make CFLAGS="-D EVERYTHING'
-CFLAGS = -Wall -pedantic
+CFLAGS = -Wall -pedantic -ansi
 OBJ = game.o asciiPrinting.o command.o list.o menu.o input_checking.o queue.o
-EXEC = asciiArt
+EXEC = simon_says
 CC = gcc
 
 $(EXEC) : $(OBJ)

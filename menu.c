@@ -6,8 +6,9 @@
 /* Reassigns a pointer variable to a user input integer */
 void cancel_choice(int* choice)
 {
+    int input_is_num;
     printf("(1) Finish (2) Continue inputting\n");
-    int input_is_num = scan_for_int();
+    input_is_num = scan_for_int();
     if(input_is_num && input_is_num < 3)
     {
         *choice = input_is_num - 1;
@@ -23,8 +24,9 @@ void cancel_choice(int* choice)
    for choosing an option */
 void menu(int* cont, list_t* list)
 {
+    int choice;
     display_options();
-    const int choice = scan_for_int();
+    choice = scan_for_int();
 
     if(choice)
     {
@@ -85,13 +87,12 @@ void display_options()
     #endif
 }
 
-   /* Taking Simon says commands into Linked List */
+/* Taking Simon says commands into Linked List */
 void enter_commands(list_t* list)
 {
     int entering_comm = 1;
     do
     {
-        // Adds a command from the terminal to the queue
         command_t* new_command = initiate_input_to_command(list->reference_commands); 
         enqueue(list, new_command);
         cancel_choice(&entering_comm);
@@ -102,10 +103,11 @@ void enter_commands(list_t* list)
 /* Using queue to pop each Simon Says command off in order of input */
 void play_actions(list_t* list)
 {
-    if(list->count > 0)
+    const int command_count = list->count;
+    int i;
+    if(command_count > 0)
     {
-        const int command_count = list->count;
-        for(int i = 0; i < command_count; i++)
+        for(i = 0; i < command_count; i++)
         {
             command_t* command = dequeue(list);
             command->action();
@@ -123,14 +125,14 @@ void play_actions(list_t* list)
 /* Takes in string and prcocesses to read as a file */
 void load_file_commands(list_t* list)
 {
+    int flush, len;
     char file_name_to_read[FILE_STRING_LEN];
     printf("Enter filename:\n");
     
-    int flush;
     while((flush = getchar()) != '\n' && flush != EOF);
 
     fgets(file_name_to_read, FILE_STRING_LEN, stdin);
-    int len = strlen(file_name_to_read);
+    len = strlen(file_name_to_read);
     if(len > 0 && file_name_to_read[len - 1] == '\n')
     {
         file_name_to_read[--len] = '\0';
